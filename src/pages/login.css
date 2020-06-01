@@ -1,0 +1,61 @@
+.Login {
+  max-height: 390px;
+  max-width: 400px;
+  background: #F9D5BC;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  
+  /* colocar no centro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100vh; 
+}
+
+input, label {
+  display: block;
+}
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+input:focus {
+  border: 3px solid #555;
+}
+label {
+  text-align: left;
+  /* font-family: Roboto; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  color: #000000;
+}
+
+button {
+  background: #EA7056;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+
+  /* text */
+  /* font-family: Roboto; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #FFFFFF;
+
+  border: 1px solid rgba(255, 253, 253, 0.41);
+
+  /* trasição do button hover */
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: white; /* Green */
+  color: black;
+}
