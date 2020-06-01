@@ -15,7 +15,7 @@ export default function Login() {
     event.preventDefault();
     if(email==='admin' && password==='admin')
       window.location.href = "/home";
-    setError(true)
+    else{setError(true)}
   }
 
   return (<>
