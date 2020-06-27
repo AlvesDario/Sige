@@ -1,0 +1,41 @@
+{
+    "email_ou_ra": "E-mail o RA",
+    "senha": "Contraseña:",
+    "acessar": "Acceso",
+    "erro_login": "Nombre de usuario y contraseña no coinciden",
+
+    "bem_vindo": "Bienvenido al Sistema Integrado de Gestão de Estágio",
+
+    "importar_dados": "Datos de importacion - SIGA",
+    "escolher_arquivo": "Elija un archivo antes de presionar el botón Enviar!",
+    "detalhes": "Detalles:",
+    "nome_arquivo": "Nombre del archivo:",
+    "tipo_arquivo": "Tipo de archivo:",
+    "ultima_modificacao": "Última modificación:",
+    "enviar": "Enviar",
+
+    "alunos": "Estudiantes",
+    "nome_aluno": "Nombre del alumno",
+    "curso": "Curso",
+    "pesquisar": "Buscar",
+
+    "nome": "Nombre:",
+    "nascimento": "Nacimiento:",
+    "estado_civil": "Estado civil:",
+    "nome_mae": "Nombre de la madre:",
+    "Curso": "Curso:",
+    "turno": "Redondo:",
+    "e-mail": "Correo electrónico:",
+    "endereco": "Habla a:",
+    "cep": "Código postal:",
+    "telefone": "Teléfono:",
+    "celular": "Teléfono móvil:",
+    "editar": "Editar",
+
+    "inicio": "Início",
+
+    "empresas_conveniadas": "Compañías asociadas",
+    "contratos": "Contratos",
+    "dashboard": "Dashboard",
+    "configuracao": "Configuración"
+}

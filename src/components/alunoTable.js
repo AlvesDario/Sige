@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import './alunoTable.css'
+import './alunoTable.css';
+
+import { FormattedMessage } from 'react-intl';
 
 const App = () => {
     const [list, setList] = useState([{nome:"Joao", RA: 123456789, curso: "ADS"}]);
@@ -12,7 +14,7 @@ const App = () => {
     return (<>
     <div className="alunoForm">
         <div className="alunoInputForm">
-            <label>Nome do Aluno</label>
+            <label><FormattedMessage id="nome_aluno" /></label>
             <input />
         </div>
         <div className="alunoInputForm">
@@ -20,10 +22,10 @@ const App = () => {
             <input />
         </div>
         <div className="alunoInputForm">
-            <label>Curso</label>
+            <label><FormattedMessage id="curso" /></label>
             <input />
         </div>
-        <button>Pesquisar</button>
+        <button><FormattedMessage id='pesquisar' /></button>
     </div>
         <table className="alunoTable">
             <tbody>

@@ -2,6 +2,8 @@ import axios from 'axios';
 
 import React, { useState } from 'react';
 
+import { FormattedMessage } from 'react-intl';
+
 const App = () => {
     const [selectedFile, setSelectedFile] = useState(null);
 
@@ -34,11 +36,11 @@ const App = () => {
         if (selectedFile) {
             return (
                 <div>
-                    <h2>Detalhes:</h2>
-                    <p>Nome do arquivo: {selectedFile.name}</p>
-                    <p>Tipo do arquivo: {selectedFile.type}</p>
+                    <h2><FormattedMessage id="detalhes" /></h2>
+                    <p><FormattedMessage id="nome_arquivo" />{selectedFile.name}</p>
+                    <p><FormattedMessage id="tipo_arquivo" /> {selectedFile.type}</p>
                     <p>
-                        Ultima modificação:{" "}
+                        <FormattedMessage id="ultima_modificacao" />:{" "}
                         {selectedFile.lastModifiedDate.toDateString()}
                     </p>
                 </div>
@@ -47,7 +49,7 @@ const App = () => {
             return (
                 <div>
                     <br />
-                    <h4>Escolha um arquivo antes de apertar o botão Enviar!</h4>
+                    <h4><FormattedMessage id="escolher_arquivo" /></h4>
                 </div>
             );
         }
@@ -58,7 +60,7 @@ const App = () => {
             <div>
                 <input type="file" onChange={onFileChange} />
                 <button onClick={onFileUpload}>
-                    Enviar!
+                    <FormattedMessage id="enviar" />
                     </button>
             </div>
             {fileData()}

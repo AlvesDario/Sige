@@ -1,0 +1,41 @@
+{
+    "email_ou_ra": "E-mail or RA:",
+    "senha": "Password:",
+    "acessar": "Login",
+    "erro_login": "Username and password do not match",
+
+    "bem_vindo": "Welcome to Sistema Integrado de Gestão de Estágio",
+
+    "importar_dados": "Import data - SIGA",
+    "escolher_arquivo": "Choose a file before pressing the Send button!",
+    "detalhes": "Details:",
+    "nome_arquivo": "File name:",
+    "tipo_arquivo": "File type",
+    "ultima_modificacao": "Last modified",
+    "enviar": "Submit",
+
+    "alunos": "Students",
+    "nome_aluno": "Student name",
+    "curso": "Course",
+    "pesquisar": "Search",
+
+    "nome": "Name:",
+    "nascimento": "Birth",
+    "estado_civil": "Civil status:",
+    "nome_mae": "Mother's name:",
+    "Curso": "Course:",
+    "turno": "Round:",
+    "e-mail": "E-mail:",
+    "endereco": "Address:",
+    "cep": "Zip code:",
+    "telefone": "Telephone:",
+    "celular": "Cellphone:",
+    "editar": "Edit",
+
+    "inicio": "Start",
+
+    "empresas_conveniadas": "Associated companies",
+    "contratos": "Contracts",
+    "dashboard": "Dashboard",
+    "configuracao": "Configuration"
+}

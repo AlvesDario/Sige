@@ -1,21 +1,23 @@
 import React from 'react';
 import './sidenav.css';
 
+import { FormattedMessage } from 'react-intl';
+
 const App = () => {
   return (<>
     <div className="sidebar">
       <div className="Userbox">
         <img alt="avatar" src="https://objetivogru.com/wp-content/uploads/2016/11/fatec.jpg" className="userpic"/>
         <p className="username">FATEC - Indaiatuba</p>
-        <p className="userID">admin</p>
+        <p className="userID">Admin</p>
       </div>
-      <a href="/home">Inicio</a>
-      <a href="/import">Importar Dados - SIGA</a>
-      <a href="/aluno">Alunos</a>
-      <a href="/empresas">Empresas Conveniadas</a>
-      <a href="/contratos">Contratos</a>
-      <a href="/dashboard">DashBoard</a>
-      <a href="/config">Configuração</a>
+      <a href="/home"><FormattedMessage id='inicio' /></a>
+      <a href="/import"><FormattedMessage id='importar_dados' /></a>
+      <a href="/aluno"><FormattedMessage id='alunos' /></a>
+      <a href="/empresas"><FormattedMessage id='empresas_conveniadas' /></a>
+      <a href="/contratos"><FormattedMessage id='contratos' /></a>
+      <a href="/dashboard"><FormattedMessage id='dashboard' /></a>
+      <a href="/config"><FormattedMessage id='configuracao' /></a>
     </div>
   </>);
 };
