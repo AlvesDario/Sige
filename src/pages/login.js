@@ -3,12 +3,13 @@ import { FormGroup, FormControl } from "react-bootstrap";
 import "./login.css";
 import { Context } from '../components/Wrapper';
 import { FormattedMessage } from 'react-intl';
+import Axios from "axios";
 
 export default function Login() {
   const context = useContext(Context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(0);
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
@@ -16,11 +17,21 @@ export default function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    if(email==='admin' && password==='admin')
-      window.location.href = "/home";
-    else{setError(true)}
+    Axios.post('http://45.79.139.78/v1/auth/authenticate', {
+      credentials: {
+        email: email,
+        password: password
+      }
+    }).then(res => {
+      if (res.status === 200) {
+        localStorage.setItem('jwtToken', res.data.token);
+        window.location.href = "/home";
+      }
+    }).catch(({ response }) => {
+      setError(response.status);
+    })
   }
-
+  
   return (<>
     <select value={context.locale} onChange={context.selectLang}>
       <option value="en-US">English</option>
@@ -32,32 +43,32 @@ export default function Login() {
       <form onSubmit={handleSubmit}>
         <FormGroup controlId="email" bsSize="large">
           <label>
-            <FormattedMessage 
+            <FormattedMessage
               id="email_ou_ra"
-              />
+            />
           </label>
           <FormControl
             autoFocus
             type="text"
             value={email}
             onChange={e => setEmail(e.target.value)}
-            />
+          />
         </FormGroup>
         <FormGroup controlId="password" bsSize="large">
-          <label><FormattedMessage 
-              id="senha"
-              /></label>
+          <label><FormattedMessage
+            id="senha"
+          /></label>
           <FormControl
             value={password}
             onChange={e => setPassword(e.target.value)}
             type="password"
           />
         </FormGroup>
-        {error && <><p><FormattedMessage id="erro_login"/></p></>}
+        {error ? <p><FormattedMessage id={"erro_login_" + error} /></p> : <></>}
         <button disabled={!validateForm()} type="submit">
-          <FormattedMessage 
+          <FormattedMessage
             id="acessar"
-            />
+          />
         </button>
       </form>
     </div>
