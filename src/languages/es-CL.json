@@ -2,7 +2,12 @@
     "email_ou_ra": "E-mail o RA",
     "senha": "Contraseña:",
     "acessar": "Acceso",
-    "erro_login": "Nombre de usuario y contraseña no coinciden",
+    "erro_login_401": "Credenciales incorrectas",
+    "erro_login_404": "La cuenta no existe",
+    "erro_login_405": "Método equivocado",
+    "erro_login_422": "Cuenta no habilitada todavía",
+    "erro_login_599": "Algo salió mal",
+    "esqueci": "¿Se te olvidó tu contraseña??",
 
     "bem_vindo": "Bienvenido al Sistema Integrado de Gestão de Estágio",
 

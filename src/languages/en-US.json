@@ -2,7 +2,12 @@
     "email_ou_ra": "E-mail or RA:",
     "senha": "Password:",
     "acessar": "Login",
-    "erro_login": "Username and password do not match",
+    "erro_login_401": "Wrong credentials",
+    "erro_login_404": "User has no accounts",
+    "erro_login_405": "Wrong method",
+    "erro_login_422": "Account not yet enabled",
+    "erro_login_599": "Something went wrong",
+    "esqueci": "Forgot password?",
 
     "bem_vindo": "Welcome to Sistema Integrado de Gestão de Estágio",
 

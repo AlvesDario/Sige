@@ -3,6 +3,12 @@
     "senha": "Senha:",
     "acessar": "Acessar",
     "erro_login": "Usuário e senha não confere",
+    "erro_login_401": "credencial errada",
+    "erro_login_404": "usuário nao tem conta",
+    "erro_login_405": "metodo errado",
+    "erro_login_422": "conta nao ta habilitada",
+    "erro_login_599": "se der algum problema interno no backend",
+    "esqueci": "Esqueci minha senha?",
 
     "bem_vindo": "Bem-vindo ao Sistema Integrado de Gestão de Estágio",
 
