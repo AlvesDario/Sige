@@ -23,7 +23,7 @@ const App = () => {
 
 
     return (<>
-        <SideNav/>
+        <SideNav />
         <div className="content">
             <select value={context.locale} onChange={context.selectLang}>
                 <option value="en-US">English</option>
