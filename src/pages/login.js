@@ -31,7 +31,7 @@ export default function Login() {
       setError(response.status);
     })
   }
-  
+
   return (<>
     <select value={context.locale} onChange={context.selectLang}>
       <option value="en-US">English</option>
@@ -72,5 +72,6 @@ export default function Login() {
         </button>
       </form>
     </div>
+    <a href='/remember'><FormattedMessage id="esqueci" /></a>
   </>);
 }
