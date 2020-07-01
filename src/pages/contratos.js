@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import React, { useState, useEffect } from 'react';
 import SideNav from '../components/sidenav';
-import EmpresasTable from '../components/contratosTable';
+import ContratosTable from '../components/contratosTable';
 import Axios from "axios";
 
 const App = () => {
@@ -33,12 +33,14 @@ const App = () => {
     <div className="content">
       <h1>Contratos</h1>
       {NCON && <>
+        <label>Numero do contrato:</label>
+        <input type="text" value={NCON} disabled={true} />
         <label>RA:</label>
         <input type="text" value={RA} disabled={!edit} onChange={(e) => { setRA(e.target.value) }} />
         <label>Nome do Aluno:</label>
         <input type="text" value={alunoName} disabled={!edit} onChange={(e) => { setAlunoName(e.target.value) }} />
         <label>CNPJ:</label>
-        <input type="text" value={CNPJ} disabled={true} />
+        <input type="text" value={CNPJ} disabled={!edit} onChange={(e) => { setCNPJ(e.target.value) }} />
         <label>Razão Social:</label>
         <input type="text" value={razao} disabled={!edit} onChange={(e) => { setRazao(e.target.value) }} />
         <label>Início do contrato:</label>
@@ -49,8 +51,8 @@ const App = () => {
         <input type="text" value={bolsaAuxilio} disabled={!edit} onChange={(e) => { setBolsaAuxilio(e.target.value) }} />
         <button onClick={() => setEdit(!edit)}>editar</button>
       </>}
-      {!CNPJ && <>
-        <EmpresasTable />
+      {!NCON && <>
+        <ContratosTable />
       </>}
     </div>
   </>);
