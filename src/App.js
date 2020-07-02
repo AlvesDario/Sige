@@ -8,6 +8,7 @@ import DataImport from './pages/dataimport';
 import Aluno from './pages/alunos';
 import Empresa from './pages/empresas';
 import Contrato from './pages/contratos';
+import RememberPage from './pages/remember';
 
 const checkAuth = () => {
   const token = localStorage.getItem('jwtToken');
@@ -39,6 +40,7 @@ const App = () => {
     <div className="App">
       <Switch>
         <Route path="/" exact={true} component={LoginPage} />
+        <Route path="/remember" component={RememberPage} />
         <AuthRoute path="/home" component={HomePage} />
         <AuthRoute path="/import" component={DataImport} />
         <AuthRoute exact path="/aluno/" component={Aluno} />
