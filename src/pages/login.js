@@ -11,6 +11,11 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(0);
 
+  const handleLanguageChange = (e) => {
+    localStorage.setItem('locale', e.target.value);
+    context.selectLang();
+  }
+
   function validateForm() {
     return email.length > 0 && password.length > 0;
   }
@@ -33,7 +38,7 @@ export default function Login() {
   }
 
   return (<>
-    <select value={context.locale} onChange={context.selectLang}>
+    <select value={localStorage.getItem('locale')||'pt-BR'} onChange={handleLanguageChange}>
       <option value="en-US">English</option>
       <option value="pt-BR">Português</option>
       <option value="es-CL">Espanhol</option>

@@ -28,6 +28,10 @@ const App = () => {
     })
   }, [NCON])
 
+  useEffect(()=>{
+    context.selectLang();
+  }, [])
+  
   return (<>
     <SideNav />
     <div className="content">

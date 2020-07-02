@@ -21,15 +21,13 @@ const App = () => {
   const [telefone, setTelefone] = useState("19 3898-2357");
   const [celular, setCelular] = useState("19 98246-8342");
 
+  useEffect(()=>{
+    context.selectLang();
+  }, [])
 
   return (<>
     <SideNav />
     <div className="content">
-      <select value={context.locale} onChange={context.selectLang}>
-        <option value="en-US">English</option>
-        <option value="pt-BR">Português</option>
-        <option value="es-CL">Espanhol</option>
-      </select>
       <h1><FormattedMessage id="alunos" /></h1>
       {RA && <>
         <label>RA:</label>

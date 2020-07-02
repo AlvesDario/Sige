@@ -32,6 +32,10 @@ const App = () => {
     })
   }, [CNPJ])
 
+  useEffect(()=>{
+    context.selectLang();
+  }, [])
+  
   return (<>
     <SideNav />
     <div className="content">
