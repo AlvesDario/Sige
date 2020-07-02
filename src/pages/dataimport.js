@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import SideNav from '../components/sidenav';
 import FileUpload from '../components/fileUpload';
 import { Context } from '../components/Wrapper';
@@ -10,7 +10,7 @@ const App = () => {
     useEffect(()=>{
       context.selectLang();
     }, [])
-    
+
     return (<>
     <SideNav/>
     <div className="content">

@@ -1,10 +1,12 @@
 import { useParams } from "react-router";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import SideNav from '../components/sidenav';
 import ContratosTable from '../components/contratosTable';
+import { Context } from '../components/Wrapper';
 import Axios from "axios";
 
 const App = () => {
+  const context = useContext(Context);
   const [edit, setEdit] = useState(false);
 
   const { NCON } = useParams();
@@ -31,7 +33,7 @@ const App = () => {
   useEffect(()=>{
     context.selectLang();
   }, [])
-  
+
   return (<>
     <SideNav />
     <div className="content">

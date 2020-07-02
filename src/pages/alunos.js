@@ -1,5 +1,5 @@
 import { useParams } from "react-router";
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import SideNav from '../components/sidenav';
 import AlunoTable from '../components/alunoTable';
 import { Context } from '../components/Wrapper';
