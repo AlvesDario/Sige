@@ -36,7 +36,7 @@ const App = () => {
 
   useEffect(()=>{
     context.selectLang();
-  }, [])
+  }, [context])
 
   return (<>
     <SideNav />
