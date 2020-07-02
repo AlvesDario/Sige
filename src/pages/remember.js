@@ -6,21 +6,21 @@ import './login.css';
 const App = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     Axios.post("https://45.79.139.78/v1/auth/begin_access_recovery", {
       access_recovery_data: {
         email: email
       }
-    }, {headers: {"Content-Language": "pt-BR"}}).then(({response}) => {
-      if(response.status === 200){
+    }, { headers: { "Content-Language": localStorage.getItem('locale') } }).then(({ response }) => {
+      if (response.status === 200) {
         setMessage("email de recuperação enviado com sucesso!");
       }
     }).catch(err => {
-      try{
+      try {
         setMessage(err.response.data.message);
-      }catch(e){}
+      } catch (e) { }
     })
   }
 
@@ -29,7 +29,7 @@ const App = () => {
   }
 
   return (<>
-    <h1>Lembrar Senha</h1>
+    <h1>Solicitar recuperação de senha</h1>
     <p>Ensira o email utilizado no cadastro</p>
     <div className="Login">
       <form onSubmit={handleSubmit}>
@@ -41,6 +41,7 @@ const App = () => {
       </form>
     </div>
     {message && <p>{message}</p>}
+    <a href="/recupera">ja possui codigo?</a>
   </>)
 }
 
