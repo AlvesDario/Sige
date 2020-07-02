@@ -22,7 +22,7 @@ export default function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    Axios.post('http://45.79.139.78/v1/auth/authenticate', {
+    Axios.post('https://45.79.139.78/v1/auth/authenticate', {
       credentials: {
         email: email,
         password: password
