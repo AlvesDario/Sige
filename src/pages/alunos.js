@@ -23,51 +23,71 @@ const App = () => {
   const [celular, setCelular] = useState("");
 
   useEffect(() => {
-    if(RA)
-    if (!edit) {
-      Axios.get("https://jsonbox.io/box_c2aba15389ee5cfa5983/alunos?q=RA:" + RA).then(({data}) => {
-        if (data[0]?1:0) {
-          Axios.put("https://jsonbox.io/box_c2aba15389ee5cfa5983/alunos/" + data[0]._id, {
-            RA: RA,
-            nome: nome,
-            nascimento: nascimento,
-            nomeMae: nomeMae,
-            estadoCivil: estadoCivil,
-            curso: curso,
-            turno: turno,
-            email: email,
-            endereco: endereco,
-            CEP: CEP,
-            telefone: telefone,
-            celular: celular
-          })
-        }
-        else{
-          Axios.post("https://jsonbox.io/box_c2aba15389ee5cfa5983/alunos", {
-            RA: RA,
-            nome: nome,
-            nascimento: nascimento,
-            nomeMae: nomeMae,
-            estadoCivil: estadoCivil,
-            curso: curso,
-            turno: turno,
-            email: email,
-            endereco: endereco,
-            CEP: CEP,
-            telefone: telefone,
-            celular: celular
-          }).then(data => {
-            console.log("cadastrado com sucesso")
-          })
-        }
-      })
-      
-    }
+    if (RA)
+      if (!edit) {
+        Axios.get("https://jsonbox.io/box_c2aba15389ee5cfa5983/alunos?q=RA:" + RA).then(({ data }) => {
+          if (data[0] ? 1 : 0) {
+            Axios.put("https://jsonbox.io/box_c2aba15389ee5cfa5983/alunos/" + data[0]._id, {
+              RA: RA,
+              nome: nome,
+              nascimento: nascimento,
+              nomeMae: nomeMae,
+              estadoCivil: estadoCivil,
+              curso: curso,
+              turno: turno,
+              email: email,
+              endereco: endereco,
+              CEP: CEP,
+              telefone: telefone,
+              celular: celular
+            })
+          }
+          else {
+            Axios.post("https://jsonbox.io/box_c2aba15389ee5cfa5983/alunos", {
+              RA: RA,
+              nome: nome,
+              nascimento: nascimento,
+              nomeMae: nomeMae,
+              estadoCivil: estadoCivil,
+              curso: curso,
+              turno: turno,
+              email: email,
+              endereco: endereco,
+              CEP: CEP,
+              telefone: telefone,
+              celular: celular
+            }).then(data => {
+              console.log("cadastrado com sucesso")
+            })
+          }
+        })
+      }
   }, [edit, CEP, RA, celular, curso, email, endereco, estadoCivil, nascimento, nome, nomeMae, telefone, turno]);
 
   useEffect(() => {
     context.selectLang();
   }, [context])
+
+  useEffect(() => {
+    if (RA) {
+      Axios.get("").then(({ data }) => {
+        if (data[0] ? 1 : 0) {
+          const alunoData = data[0];
+          setNome(alunoData.nome)
+          setNascimento(alunoData.nascimento)
+          setNomeMae(alunoData.nomeMae)
+          setEstadoCivil(alunoData.estadoCivil)
+          setCurso(alunoData.curso)
+          setTurno(alunoData.turno)
+          setEmail(alunoData.email)
+          setEndereco(alunoData.endereco)
+          setCEP(alunoData.CEP)
+          setTelefone(alunoData.telefone)
+          setCelular(alunoData.celular)
+        }
+      })
+    }
+  }, [RA])
 
   return (<>
     <SideNav />
