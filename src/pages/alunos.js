@@ -62,7 +62,7 @@ const App = () => {
       })
       
     }
-  }, [edit]);
+  }, [edit, CEP, RA, celular, curso, email, endereco, estadoCivil, nascimento, nome, nomeMae, telefone, turno]);
 
   useEffect(() => {
     context.selectLang();
