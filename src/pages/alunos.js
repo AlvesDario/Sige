@@ -23,6 +23,7 @@ const App = () => {
   const [celular, setCelular] = useState("");
 
   useEffect(() => {
+    if(RA)
     if (!edit) {
       Axios.get("https://jsonbox.io/box_c2aba15389ee5cfa5983/alunos?q=RA:" + RA).then(({data}) => {
         if (data[0]?1:0) {
