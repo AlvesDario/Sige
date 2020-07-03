@@ -47,12 +47,12 @@ const App = () => {
         <Route path="/recupera" component={RecuperaPage} />
         <AuthRoute path="/home" component={HomePage} />
         <AuthRoute path="/import" component={DataImport} />
-        <AuthRoute exact path="/aluno/" component={Aluno} />
-        <AuthRoute path="/aluno/:RA" component={Aluno} />
-        <AuthRoute exact path="/empresas/" component={Empresa}/>
-        <AuthRoute path="/empresas/:CNPJ" component={Empresa} />
-        <AuthRoute exact path="/contratos/" component={Contrato}/>
-        <AuthRoute path="/contratos/:NCON" component={Contrato} />
+        <Route exact path="/aluno/" component={Aluno} />
+        <Route path="/aluno/:RA" component={Aluno} />
+        <Route exact path="/empresas/" component={Empresa}/>
+        <Route path="/empresas/:CNPJ" component={Empresa} />
+        <Route exact path="/contratos/" component={Contrato}/>
+        <Route path="/contratos/:NCON" component={Contrato} />
 
       </Switch>
     </div>

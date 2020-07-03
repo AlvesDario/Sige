@@ -4,24 +4,67 @@ import SideNav from '../components/sidenav';
 import AlunoTable from '../components/alunoTable';
 import { Context } from '../components/Wrapper';
 import { FormattedMessage } from 'react-intl';
+import Axios from "axios";
 
 const App = () => {
   const context = useContext(Context);
   const { RA } = useParams();
   const [edit, setEdit] = useState(false);
-  const [nome, setNome] = useState("Joao");
-  const [nascimento, setNascimento] = useState("20/10/1960");
-  const [nomeMae, setNomeMae] = useState("Maria");
-  const [estadoCivil, setEstadoCivil] = useState("Solteiro");
-  const [curso, setCurso] = useState("ADS");
-  const [turno, setTurno] = useState("Noturno");
-  const [email, setEmail] = useState("Joao@fatec.sp.gov.br");
-  const [endereco, setEndereco] = useState("Av Santana nº14");
-  const [CEP, setCEP] = useState("13150-352");
-  const [telefone, setTelefone] = useState("19 3898-2357");
-  const [celular, setCelular] = useState("19 98246-8342");
+  const [nome, setNome] = useState("");
+  const [nascimento, setNascimento] = useState("");
+  const [nomeMae, setNomeMae] = useState("");
+  const [estadoCivil, setEstadoCivil] = useState("");
+  const [curso, setCurso] = useState("");
+  const [turno, setTurno] = useState("");
+  const [email, setEmail] = useState("");
+  const [endereco, setEndereco] = useState("");
+  const [CEP, setCEP] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [celular, setCelular] = useState("");
 
-  useEffect(()=>{
+  useEffect(() => {
+    if (!edit) {
+      Axios.get("https://jsonbox.io/box_c2aba15389ee5cfa5983/alunos?q=RA:" + RA).then(({data}) => {
+        if (data[0]?1:0) {
+          Axios.put("https://jsonbox.io/box_c2aba15389ee5cfa5983/alunos/" + data[0]._id, {
+            RA: RA,
+            nome: nome,
+            nascimento: nascimento,
+            nomeMae: nomeMae,
+            estadoCivil: estadoCivil,
+            curso: curso,
+            turno: turno,
+            email: email,
+            endereco: endereco,
+            CEP: CEP,
+            telefone: telefone,
+            celular: celular
+          })
+        }
+        else{
+          Axios.post("https://jsonbox.io/box_c2aba15389ee5cfa5983/alunos", {
+            RA: RA,
+            nome: nome,
+            nascimento: nascimento,
+            nomeMae: nomeMae,
+            estadoCivil: estadoCivil,
+            curso: curso,
+            turno: turno,
+            email: email,
+            endereco: endereco,
+            CEP: CEP,
+            telefone: telefone,
+            celular: celular
+          }).then(data => {
+            console.log("cadastrado com sucesso")
+          })
+        }
+      })
+      
+    }
+  }, [edit]);
+
+  useEffect(() => {
     context.selectLang();
   }, [context])
 
