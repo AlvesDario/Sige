@@ -21,6 +21,47 @@ const App = () => {
   const [fimConvenio, setFimConvenio] = useState("");
 
   useEffect(() => {
+    if (CNPJ) {
+      if (!edit) {
+        Axios.get("https://jsonbox.io/box_c2aba15389ee5cfa5983/empresas?q=CNPJ:" + CNPJ).then(({data}) => {
+          if (data[0]?1:0) {
+            Axios.put("https://jsonbox.io/box_c2aba15389ee5cfa5983/empresas/" + data[0]._id, {
+              CNPJ: CNPJ,
+              razao: razao,
+              dataAbertura: dataAbertura,
+              email: email,
+              CEP: CEP,
+              endereco: endereco,
+              telefone: telefone,
+              celular: celular,
+              inicioConvenio: inicioConvenio,
+              fimConvenio: fimConvenio
+            })
+          }
+          else{
+            Axios.post("https://jsonbox.io/box_c2aba15389ee5cfa5983/empresas", {
+              CNPJ: CNPJ,
+              razao: razao,
+              dataAbertura: dataAbertura,
+              email: email,
+              CEP: CEP,
+              endereco: endereco,
+              telefone: telefone,
+              celular: celular,
+              inicioConvenio: inicioConvenio,
+              fimConvenio: fimConvenio
+            }).then(data => {
+              console.log("cadastrado com sucesso")
+            })
+          }
+        })
+      }
+    }
+  }, [edit, CNPJ, razao, dataAbertura, email, CEP, endereco, telefone, celular, inicioConvenio, fimConvenio]);
+
+
+
+  useEffect(() => {
     Axios.get(/** pegar dados do aluno baseado no CNPJ*/).then(res => {
       setRazao(res.razao);
       setDataAbertura(res.dataAbertura);
@@ -48,21 +89,21 @@ const App = () => {
         <label>Razão Social:</label>
         <input type="text" value={razao} disabled={!edit} onChange={(e) => { setRazao(e.target.value) }} />
         <label>Data de abertura:</label>
-        <input type="text" value={dataAbertura} disabled={!edit} onChange={(e) => { setDataAbertura(e.target.value) }} />
+        <input type="date" value={dataAbertura} disabled={!edit} onChange={(e) => { setDataAbertura(e.target.value) }} />
         <label>Email:</label>
-        <input type="text" value={email} disabled={!edit} onChange={(e) => { setEmail(e.target.value) }} />
+        <input type="email" value={email} disabled={!edit} onChange={(e) => { setEmail(e.target.value) }} />
         <label>CEP:</label>
         <input type="text" value={CEP} disabled={!edit} onChange={(e) => { setCEP(e.target.value) }} />
         <label>Endereco:</label>
         <input type="text" value={endereco} disabled={!edit} onChange={(e) => { setEndereco(e.target.value) }} />
         <label>Telefone:</label>
-        <input type="text" value={telefone} disabled={!edit} onChange={(e) => { setTelefone(e.target.value) }} />
+        <input type="tel" value={telefone} disabled={!edit} onChange={(e) => { setTelefone(e.target.value) }} />
         <label>Celular:</label>
-        <input type="text" value={celular} disabled={!edit} onChange={(e) => { setCelular(e.target.value) }} />
+        <input type="tel" value={celular} disabled={!edit} onChange={(e) => { setCelular(e.target.value) }} />
         <label>Inicio do Convenio:</label>
-        <input type="text" value={inicioConvenio} disabled={!edit} onChange={(e) => { setinicioConvenio(e.target.value) }} />
+        <input type="date" value={inicioConvenio} disabled={!edit} onChange={(e) => { setinicioConvenio(e.target.value) }} />
         <label>Termino do convenio:</label>
-        <input type="text" value={fimConvenio} disabled={!edit} onChange={(e) => { setFimConvenio(e.target.value) }} />
+        <input type="date" value={fimConvenio} disabled={!edit} onChange={(e) => { setFimConvenio(e.target.value) }} />
         <button onClick={() => setEdit(!edit)}>editar</button>
       </>}
       {!CNPJ && <>

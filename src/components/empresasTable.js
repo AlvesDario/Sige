@@ -14,8 +14,8 @@ const App = () => {
   }
 
   const handleSearchClick = () => {
-    Axios.get(/** pega lista de alunos*/)
-      .then(res => setEmpresaTable(res));
+    Axios.get("https://jsonbox.io/box_c2aba15389ee5cfa5983/empresas")
+      .then(res => setEmpresaTable(res.data));
   }
 
   return (<>
