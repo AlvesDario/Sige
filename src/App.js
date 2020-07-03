@@ -10,6 +10,7 @@ import Empresa from './pages/empresas';
 import Contrato from './pages/contratos';
 import RememberPage from './pages/remember';
 import RecuperaPage from './pages/recupera';
+import CadastroPage from './pages/cadastro';
 
 const checkAuth = () => {
   const token = localStorage.getItem('jwtToken');
@@ -41,6 +42,7 @@ const App = () => {
     <div className="App">
       <Switch>
         <Route path="/" exact={true} component={LoginPage} />
+        <Route path="/cadastro" component={CadastroPage} />
         <Route path="/remember" component={RememberPage} />
         <Route path="/recupera" component={RecuperaPage} />
         <AuthRoute path="/home" component={HomePage} />

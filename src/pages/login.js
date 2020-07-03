@@ -77,6 +77,7 @@ export default function Login() {
         </button>
       </form>
     </div>
+    <a href='/cadastro'>Cadastrar</a><br/>
     <a href='/remember'><FormattedMessage id="esqueci" /></a>
   </>);
 }
