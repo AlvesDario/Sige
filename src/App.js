@@ -11,6 +11,7 @@ import Contrato from './pages/contratos';
 import RememberPage from './pages/remember';
 import RecuperaPage from './pages/recupera';
 import CadastroPage from './pages/cadastro';
+import DashBoardPage from './pages/dashboard';
 
 const checkAuth = () => {
   const token = localStorage.getItem('jwtToken');
@@ -53,6 +54,7 @@ const App = () => {
         <Route path="/empresas/:CNPJ" component={Empresa} />
         <Route exact path="/contratos/" component={Contrato}/>
         <Route path="/contratos/:NCON" component={Contrato} />
+        <Route path="/dashboard" component={DashBoardPage} />
 
       </Switch>
     </div>
