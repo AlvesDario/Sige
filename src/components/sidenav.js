@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import './sidenav.css';
+import { Context } from '../components/Wrapper';
 
 import { FormattedMessage } from 'react-intl';
 
 const App = () => {
+
+  const context = useContext(Context);
+
+  const [email, setEmail] = useState("");
+
+  useEffect(()=>{
+    context.selectLang();
+    setEmail(localStorage.getItem('email'))
+    console.log(localStorage.getItem('email'))
+  }, [context])
+
   return (<>
     <div className="sidebar">
       <div className="Userbox">
         <img alt="avatar" src="https://objetivogru.com/wp-content/uploads/2016/11/fatec.jpg" className="userpic"/>
-        <p className="username">FATEC - Indaiatuba</p>
+        <input type='text' className="username" value={email} disabled={true}></input>
         <p className="userID">Admin</p>
       </div>
       <a href="/home"><FormattedMessage id='inicio' /></a>
@@ -17,7 +29,7 @@ const App = () => {
       <a href="/empresas"><FormattedMessage id='empresas_conveniadas' /></a>
       <a href="/contratos"><FormattedMessage id='contratos' /></a>
       <a href="/dashboard"><FormattedMessage id='dashboard' /></a>
-      <a href="/config"><FormattedMessage id='configuracao' /></a>
+      <a href="/configuracao"><FormattedMessage id='configuracao' /></a>
     </div>
   </>);
 };

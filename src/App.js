@@ -11,6 +11,9 @@ import Contrato from './pages/contratos';
 import RememberPage from './pages/remember';
 import RecuperaPage from './pages/recupera';
 import CadastroPage from './pages/cadastro';
+import Configuracao from './pages/configuracao';
+import ResetPassword from './pages/reset_password';
+import PendingUsers from './pages/pendingUsers';
 
 const checkAuth = () => {
   const token = localStorage.getItem('jwtToken');
@@ -53,6 +56,9 @@ const App = () => {
         <Route path="/empresas/:CNPJ" component={Empresa} />
         <Route exact path="/contratos/" component={Contrato}/>
         <Route path="/contratos/:NCON" component={Contrato} />
+        <Route exact path="/configuracao/" component={Configuracao} />
+        <Route path="/configuracao/reset_password" component={ResetPassword} />
+        <Route path="/configuracao/pending_access" component={PendingUsers} />
 
       </Switch>
     </div>

@@ -42,5 +42,18 @@
     "empresas_conveniadas": "Compañías asociadas",
     "contratos": "Contratos",
     "dashboard": "Dashboard",
-    "configuracao": "Configuración"
+    "configuracao": "Configuración",
+
+    "redefinir_senha": "Redefinir contraseña",
+    "habilitar_acesso": "Permitir acceso",
+
+    "ingles": "Inglés",
+    "portugues": "Portugués",
+    "espanhol": "Español",
+
+    "cadastrar": "Regístrate",
+
+    "nova_senha": "Nueva contraseña:",
+    "digite_novamente": "Confirmar nueva contraseña:",
+    "confirmar": "Confirmar"
 }

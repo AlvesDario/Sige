@@ -42,5 +42,19 @@
     "empresas_conveniadas": "Associated companies",
     "contratos": "Contracts",
     "dashboard": "Dashboard",
-    "configuracao": "Configuration"
+    "configuracao": "Configuration",
+
+    "redefinir_senha": "Reset password",
+    "habilitar_acesso": "Enable access",
+
+    "ingles": "English",
+    "portugues": "Portuguese",
+    "espanhol": "Spanish",
+
+    "cadastrar": "Sign up",
+
+    "nova_senha": "New password:",
+    "digite_novamente": "Confirm new password:",
+    "confirmar": "Submit"
+
 }
