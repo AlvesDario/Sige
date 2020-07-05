@@ -16,9 +16,7 @@ const App = () => {
   }
 
   function deleteUser(id) {
-    Axios.put("https://45.79.139.78/v1/management/users/" + id + "/delete", {
-      key: "value"
-    }, {
+    Axios.delete("https://45.79.139.78/v1/management/users/" + id, {
       headers: {
           Authorization: 'Bearer ' + localStorage.getItem("jwtToken")
       }
