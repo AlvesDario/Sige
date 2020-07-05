@@ -30,6 +30,8 @@ export default function Login() {
     }).then(res => {
       if (res.status === 200) {
         localStorage.setItem('jwtToken', res.data.token);
+        console.log(res.data.token)
+        localStorage.setItem('email', email);
         window.location.href = "/home";
       }
     }).catch(({ response }) => {
@@ -39,7 +41,7 @@ export default function Login() {
 
   return (<>
     <select value={localStorage.getItem('locale')||'pt-BR'} onChange={handleLanguageChange}>
-      <option value="en-US">English</option>
+      <option value="en-US">Inglês</option>
       <option value="pt-BR">Português</option>
       <option value="es-CL">Espanhol</option>
     </select>
@@ -77,7 +79,7 @@ export default function Login() {
         </button>
       </form>
     </div>
-    <a href='/cadastro'>Cadastrar</a><br/>
+    <a href='/cadastro'><FormattedMessage id="cadastrar" /></a><br/>
     <a href='/remember'><FormattedMessage id="esqueci" /></a>
   </>);
 }

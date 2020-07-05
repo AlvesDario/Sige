@@ -10,17 +10,17 @@ const App = () => {
   const context = useContext(Context);
   const { RA } = useParams();
   const [edit, setEdit] = useState(false);
-  const [nome, setNome] = useState("");
-  const [nascimento, setNascimento] = useState("");
-  const [nomeMae, setNomeMae] = useState("");
-  const [estadoCivil, setEstadoCivil] = useState("");
-  const [curso, setCurso] = useState("");
-  const [turno, setTurno] = useState("");
-  const [email, setEmail] = useState("");
-  const [endereco, setEndereco] = useState("");
-  const [CEP, setCEP] = useState("");
-  const [telefone, setTelefone] = useState("");
-  const [celular, setCelular] = useState("");
+  const [nome, setNome] = useState();
+  const [nascimento, setNascimento] = useState();
+  const [nomeMae, setNomeMae] = useState();
+  const [estadoCivil, setEstadoCivil] = useState();
+  const [curso, setCurso] = useState();
+  const [turno, setTurno] = useState();
+  const [email, setEmail] = useState();
+  const [endereco, setEndereco] = useState();
+  const [CEP, setCEP] = useState();
+  const [telefone, setTelefone] = useState();
+  const [celular, setCelular] = useState();
 
   useEffect(() => {
     if (RA)

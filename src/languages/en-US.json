@@ -44,5 +44,36 @@
     "dashboard": "Dashboard",
     "configuracao": "Configuration",
 
-    "selecione_grafico": "Select the graph view"
+    "selecione_grafico": "Select the graph view",
+    "redefinir_senha": "Reset password",
+    "habilitar_acesso": "Enable access",
+
+    "ingles": "English",
+    "portugues": "Portuguese",
+    "espanhol": "Spanish",
+
+    "cadastrar": "Sign up",
+
+    "nova_senha": "New password:",
+    "digite_novamente": "Confirm new password:",
+    "confirmar": "Submit",
+
+    "usuarios_pendentes": "Pending users",
+
+    "nenhum_registro": "No pending approval record found",
+    "erro_request_pending": "An error occurred while releasing the user",
+
+    "adm_acessos": "Access management",
+    "nenhum_usuario": "No users found",
+
+    "sair": "Logout",
+
+    "funcionario": "Employee",
+    "adm": "Administrator",
+    "master": "Master",
+
+    "erro_role": "User role change error",
+    "disable": "User disable",
+
+    "delete": "User delete"
 }

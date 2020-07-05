@@ -44,5 +44,31 @@
     "dashboard": "Dashboard",
     "configuracao": "Configuración",
 
-    "selecione_grafico": "Seleccione la vista de gráfico"
+    "selecione_grafico": "Seleccione la vista de gráfico",
+    "redefinir_senha": "Redefinir contraseña",
+    "habilitar_acesso": "Permitir acceso",
+
+    "ingles": "Inglés",
+    "portugues": "Portugués",
+    "espanhol": "Español",
+
+    "cadastrar": "Regístrate",
+
+    "nova_senha": "Nueva contraseña:",
+    "digite_novamente": "Confirmar nueva contraseña:",
+    "confirmar": "Confirmar",
+
+    "usuarios_pendentes": "Usuarios pendientes",
+    "nenhum_registro": "No se encontró registro de aprobación pendiente",
+
+    "erro_request_pending": "Se produjo un error al liberar al usuario.",
+    
+    "adm_acessos": "Gestión de Acceso",
+
+    "nenhum_usuario": "No se encontraron usuarios",
+
+    "sair": "Salir",
+    "erro_role": "Error de cambio de rol del usuario",
+    "disable": "Deshabilitar usuario",
+    "delete": "Borrar usuario"
 }
