@@ -25,7 +25,7 @@ const App = (props) => {
           }])
         })
       });
-  }, [setAlunoTable])
+  }, [props])
 
   const handleTrClick = (e) => {
     window.location.href += "/" + e;
