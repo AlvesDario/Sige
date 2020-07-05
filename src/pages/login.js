@@ -30,6 +30,7 @@ export default function Login() {
     }).then(res => {
       if (res.status === 200) {
         localStorage.setItem('jwtToken', res.data.token);
+        console.log(res.data.token)
         localStorage.setItem('email', email);
         window.location.href = "/home";
       }

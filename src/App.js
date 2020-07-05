@@ -59,7 +59,6 @@ const App = () => {
         <Route exact path="/configuracao/" component={Configuracao} />
         <Route path="/configuracao/reset_password" component={ResetPassword} />
         <Route path="/configuracao/pending_access" component={PendingUsers} />
-
       </Switch>
     </div>
   );

@@ -55,6 +55,11 @@
 
     "nova_senha": "New password:",
     "digite_novamente": "Confirm new password:",
-    "confirmar": "Submit"
+    "confirmar": "Submit",
+
+    "usuarios_pendentes": "Pending users",
+
+    "nenhum_registro": "No pending approval record found",
+    "erro_request_pending": "An error occurred while releasing the user"
 
 }

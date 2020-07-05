@@ -13,7 +13,6 @@ const App = () => {
   useEffect(()=>{
     context.selectLang();
     setEmail(localStorage.getItem('email'))
-    console.log(localStorage.getItem('email'))
   }, [context])
 
   return (<>

@@ -1,4 +1,3 @@
-import { useParams } from "react-router";
 import React, { useState, useContext, useEffect } from 'react';
 import { FormGroup, FormControl, FormLabel } from 'react-bootstrap';
 import SideNav from '../components/sidenav';
@@ -10,7 +9,6 @@ import { FormattedMessage } from 'react-intl';
 const App = () => {
   const context = useContext(Context);
 
-  const [edit, setEdit] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");

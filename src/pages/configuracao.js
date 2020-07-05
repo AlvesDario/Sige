@@ -1,15 +1,11 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import SideNav from '../components/sidenav';
 import { Context } from '../components/Wrapper';
-import Axios from "axios";
 import { FormattedMessage } from 'react-intl';
 
 const App = () => {
   const context = useContext(Context);
 
-  const [edit, setEdit] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   const handleLanguageChange = (e) => {
     localStorage.setItem('locale', e.target.value);

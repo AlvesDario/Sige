@@ -55,5 +55,10 @@
 
     "nova_senha": "Nueva contraseña:",
     "digite_novamente": "Confirmar nueva contraseña:",
-    "confirmar": "Confirmar"
+    "confirmar": "Confirmar",
+
+    "usuarios_pendentes": "Usuarios pendientes",
+    "nenhum_registro": "No se encontró registro de aprobación pendiente",
+
+    "erro_request_pending": "Se produjo un error al liberar al usuario."
 }
