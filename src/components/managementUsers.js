@@ -77,8 +77,7 @@ const App = () => {
         if (res.status === 200) {
             setUsers(res.data.users);
         }
-    }).catch(({ response }) => {
-        alert("Error in users active");
+    }).catch(() => {
     })
     context.selectLang();
   }, [context])
