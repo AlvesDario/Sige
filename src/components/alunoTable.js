@@ -3,14 +3,13 @@ import { FormattedMessage } from 'react-intl';
 import './searchTable.css';
 import Axios from 'axios';
 
-const App = () => {
+const App = (props) => {
   const [alunoTable, setAlunoTable] = useState([]);
 
   const [searchName, setSearchName] = useState("");
   const [searchRA, setSearchRA] = useState("");
   const [searchCurso, setSearchCurso] = useState("");
 
-  // teoricamente funciona, precisa de dados pra testar
   useEffect(() => {
     Axios.get("https://45.79.139.78/v1/intern_records/all", {
       headers: {
@@ -19,18 +18,14 @@ const App = () => {
     })
       .then(({ data }) => {// name, ra, course_name
         data.intern_records.map(intern => {
-          setAlunoTable([...alunoTable, {
+          return setAlunoTable(alunotable => [...alunotable, {
             nome: intern.name,
             RA: intern.ra,
             curso: intern.course_name
           }])
         })
-
-        // setAlunoTable(
-        console.log(data)
-        // )
       });
-  }, [])
+  }, [setAlunoTable])
 
   const handleTrClick = (e) => {
     window.location.href += "/" + e;

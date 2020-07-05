@@ -31,7 +31,7 @@ const App = () => {
       }
     }).then(({ data }) => {
       setSelectedFile(null);
-      setMessage("this may take a while");//data.message);
+      setMessage(data.message);
     })
   };
 
@@ -62,7 +62,7 @@ const App = () => {
   };
 
   const validForm = () => {
-    return (selectedFile ? true : false) && cursoID != 0;
+    return (selectedFile ? true : false) && cursoID !== "0";
   }
 
   return (
