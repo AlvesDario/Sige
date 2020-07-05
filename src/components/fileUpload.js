@@ -22,21 +22,17 @@ const App = () => {
       "file",
       selectedFile
     );
-    // Details of the uploaded file 
-    console.log({ file: selectedFile });
-    console.log(cursoID)
-
     // Request made to the backend api 
     // Send formData object 
-    // axios.post("https://45.79.139.78/v1/import_data/upload/" + cursoID, formData, {
-    //   headers: {
-    //     "Content-Type": 'multipart/form-data',
-    //     Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
-    //   }
-    // }).then(({ data }) => {
-    setSelectedFile(null);
-    setMessage("this may take a while");//data.message);
-    // })
+    axios.post("https://45.79.139.78/v1/import_data/upload/" + cursoID, formData, {
+      headers: {
+        "Content-Type": 'multipart/form-data',
+        Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
+      }
+    }).then(({ data }) => {
+      setSelectedFile(null);
+      setMessage("this may take a while");//data.message);
+    })
   };
 
   const fileData = () => {
