@@ -3,11 +3,14 @@ import SideNav from '../components/sidenav';
 import { Chart } from "react-google-charts";
 import { useState } from 'react';
 import Axios from 'axios';
+import { FormattedMessage } from 'react-intl';
 
 const App = () => {
   const [chartType, setChartType] = useState("");
   const [internsByCompany, setIBC] = useState([]);
-
+  
+  function getDash(op) {
+  }
   // https://45.79.139.78/v1/dashboard/effective_internship_contracts_by_company?ranking_size=1
   // https://45.79.139.78/v1/dashboard/interns_by_companies
   // {'interns_by_companies': [{'Test Company 0': 2}]}
@@ -20,9 +23,13 @@ const App = () => {
   return (<>
     <SideNav />
     <div className='content'>
-      <select name="" id="" onChange={(e) => setChartType(e.target.value)}>
-        <option value="estagiarios_curso">estagiarios por curso</option>
-        <option value="estagiarios_empresa">estagiarios por empresa</option>
+      <h1>
+        <FormattedMessage id="dashboard" />
+      </h1>
+      <select name="" id="" onChange={(e) => getDash(e.target.value)}>
+        <option>Selecione a visualização do gráfico</option>
+        <option value="estagiarios_empresas">estagiarios por empresa</option>
+        <option value="estagiarios_efetivos">estagiarios que foi efetivado</option>
       </select>
       {chartType === "estagiarios_curso" && <Chart
         width={800}

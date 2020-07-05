@@ -42,5 +42,7 @@
     "empresas_conveniadas": "Associated companies",
     "contratos": "Contracts",
     "dashboard": "Dashboard",
-    "configuracao": "Configuration"
+    "configuracao": "Configuration",
+
+    "selecione_grafico": "Select the graph view"
 }
