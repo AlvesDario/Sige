@@ -25,8 +25,8 @@ const App = () => {
         if (res.status === 200) {
             refreshPage();
         }
-    }).catch(({ response }) => {
-      setError(response.status);
+    }).catch(() => {
+      alert("Ocorreu um erro na aprovação do usuário")
     })
   }
 

@@ -15,7 +15,7 @@ const App = () => {
   const handleTrClick = (e) => {
     window.location.href += "/" + e;
   }
-  
+
   const handleSearchClick = () => {
     Axios.get("", {headers:{
       Authorization: localStorage.getItem('jwtToken')
