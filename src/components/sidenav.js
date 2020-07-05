@@ -10,6 +10,11 @@ const App = () => {
 
   const [email, setEmail] = useState("");
 
+  function clearLocalStorage(){
+    localStorage.removeItem("jwtToken");
+    localStorage.removeItem("email");
+  }
+
   useEffect(()=>{
     context.selectLang();
     setEmail(localStorage.getItem('email'))
@@ -29,6 +34,9 @@ const App = () => {
       <a href="/contratos"><FormattedMessage id='contratos' /></a>
       <a href="/dashboard"><FormattedMessage id='dashboard' /></a>
       <a href="/configuracao"><FormattedMessage id='configuracao' /></a>
+      <a href="/pending_access"><FormattedMessage id='usuarios_pendentes' /></a>
+      <a href="/access_management"><FormattedMessage id='adm_acessos' /></a>
+      <a href="/logout" onClick={() => clearLocalStorage()}><FormattedMessage id='sair' /></a>
     </div>
   </>);
 };

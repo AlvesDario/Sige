@@ -10,14 +10,20 @@ const App = () => {
 
   const [error, setError] = useState(0);
 
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
   function aceptUser(id) {
     Axios.put("https://45.79.139.78/v1/management/users/" + id + "/enable", {
+        key: "value"
+    }, {
         headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+            Authorization: 'Bearer ' + localStorage.getItem("jwtToken")
         }
     }).then(res => {
         if (res.status === 200) {
-            console.log("Aceito com sucesso")
+            refreshPage();
         }
     }).catch(({ response }) => {
       setError(response.status);

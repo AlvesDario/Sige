@@ -60,5 +60,11 @@
     "usuarios_pendentes": "Usuarios pendientes",
     "nenhum_registro": "No se encontró registro de aprobación pendiente",
 
-    "erro_request_pending": "Se produjo un error al liberar al usuario."
+    "erro_request_pending": "Se produjo un error al liberar al usuario.",
+    
+    "adm_acessos": "Gestión de Acceso",
+
+    "nenhum_usuario": "No se encontraron usuarios",
+
+    "sair": "Salir"
 }

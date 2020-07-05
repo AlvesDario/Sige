@@ -14,6 +14,7 @@ import CadastroPage from './pages/cadastro';
 import Configuracao from './pages/configuracao';
 import ResetPassword from './pages/reset_password';
 import PendingUsers from './pages/pendingUsers';
+import AccessManagement from './pages/accessManagement'
 
 const checkAuth = () => {
   const token = localStorage.getItem('jwtToken');
@@ -58,7 +59,9 @@ const App = () => {
         <Route path="/contratos/:NCON" component={Contrato} />
         <Route exact path="/configuracao/" component={Configuracao} />
         <Route path="/configuracao/reset_password" component={ResetPassword} />
-        <Route path="/configuracao/pending_access" component={PendingUsers} />
+        <Route path="/pending_access" component={PendingUsers} />
+        <Route path="/access_management" component={AccessManagement} />
+        <Route path="/logout" component={LoginPage} />
       </Switch>
     </div>
   );

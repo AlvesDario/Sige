@@ -60,6 +60,14 @@
     "usuarios_pendentes": "Pending users",
 
     "nenhum_registro": "No pending approval record found",
-    "erro_request_pending": "An error occurred while releasing the user"
+    "erro_request_pending": "An error occurred while releasing the user",
 
+    "adm_acessos": "Access management",
+    "nenhum_usuario": "No users found",
+
+    "sair": "Logout",
+
+    "funcionario": "Employee",
+    "adm": "Administrator",
+    "master": "Master"
 }

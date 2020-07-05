@@ -62,5 +62,15 @@
 
     "nenhum_registro": "Não foi encontrado nenhum registro pendente de aprovação",
 
-    "erro_request_pending": "Ocorreu um erro na liberação do usuário"
+    "erro_request_pending": "Ocorreu um erro na liberação do usuário",
+
+    "adm_acessos": "Administração de acessos",
+
+    "nenhum_usuario": "Nenhum usuário encontrado",
+
+    "sair": "Sair",
+
+    "funcionario": "Funcionário",
+    "adm": "Administrador",
+    "master": "Master"
 }

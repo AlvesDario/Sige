@@ -30,11 +30,6 @@ const App = () => {
                 <FormattedMessage id="redefinir_senha" />
             </a>
         </button>
-        <button>
-            <a href="/configuracao/pending_access">
-                <FormattedMessage id="habilitar_acesso" />
-            </a>
-        </button>
     </div>
   </>);
 };
