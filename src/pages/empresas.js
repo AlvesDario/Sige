@@ -22,42 +22,42 @@ const App = () => {
 
   useEffect(() => {
     if (CNPJ) {
-      if (!edit) {
-        Axios.get("https://jsonbox.io/box_c2aba15389ee5cfa5983/empresas?q=CNPJ:" + CNPJ).then(({data}) => {
-          if (data[0]?1:0) {
-            Axios.put("https://jsonbox.io/box_c2aba15389ee5cfa5983/empresas/" + data[0]._id, {
-              CNPJ: CNPJ,
-              razao: razao,
-              dataAbertura: dataAbertura,
-              email: email,
-              CEP: CEP,
-              endereco: endereco,
-              telefone: telefone,
-              celular: celular,
-              inicioConvenio: inicioConvenio,
-              fimConvenio: fimConvenio
-            })
-          }
-          else{
-            Axios.post("https://jsonbox.io/box_c2aba15389ee5cfa5983/empresas", {
-              CNPJ: CNPJ,
-              razao: razao,
-              dataAbertura: dataAbertura,
-              email: email,
-              CEP: CEP,
-              endereco: endereco,
-              telefone: telefone,
-              celular: celular,
-              inicioConvenio: inicioConvenio,
-              fimConvenio: fimConvenio
-            }).then(data => {
-              console.log("cadastrado com sucesso")
-            })
-          }
-        })
-      }
+      // if (!edit) {
+      //   Axios.get("https://jsonbox.io/box_c2aba15389ee5cfa5983/empresas?q=CNPJ:" + CNPJ).then(({data}) => {
+      //     if (data[0]?1:0) {
+      //       Axios.put("https://jsonbox.io/box_c2aba15389ee5cfa5983/empresas/" + data[0]._id, {
+      //         CNPJ: CNPJ,
+      //         razao: razao,
+      //         dataAbertura: dataAbertura,
+      //         email: email,
+      //         CEP: CEP,
+      //         endereco: endereco,
+      //         telefone: telefone,
+      //         celular: celular,
+      //         inicioConvenio: inicioConvenio,
+      //         fimConvenio: fimConvenio
+      //       })
+      //     }
+      //     else{
+      //       Axios.post("https://jsonbox.io/box_c2aba15389ee5cfa5983/empresas", {
+      //         CNPJ: CNPJ,
+      //         razao: razao,
+      //         dataAbertura: dataAbertura,
+      //         email: email,
+      //         CEP: CEP,
+      //         endereco: endereco,
+      //         telefone: telefone,
+      //         celular: celular,
+      //         inicioConvenio: inicioConvenio,
+      //         fimConvenio: fimConvenio
+      //       }).then(data => {
+      //         console.log("cadastrado com sucesso")
+      //       })
+      //     }
+      //   })
+      // }
     }
-  }, [edit, CNPJ, razao, dataAbertura, email, CEP, endereco, telefone, celular, inicioConvenio, fimConvenio]);
+  }, [CNPJ, razao, dataAbertura, email, CEP, endereco, telefone, celular, inicioConvenio, fimConvenio]);
 
 
 
@@ -85,26 +85,25 @@ const App = () => {
       <h1>Empresas conveniadas</h1>
       {CNPJ && <>
         <label>CNPJ:</label>
-        <input type="text" value={CNPJ} disabled={true} />
+        <input type="text" value={CNPJ} />
         <label>Razão Social:</label>
-        <input type="text" value={razao} disabled={!edit} onChange={(e) => { setRazao(e.target.value) }} />
+        <input type="text" value={razao} />
         <label>Data de abertura:</label>
-        <input type="date" value={dataAbertura} disabled={!edit} onChange={(e) => { setDataAbertura(e.target.value) }} />
+        <input type="date" value={dataAbertura} />
         <label>Email:</label>
-        <input type="email" value={email} disabled={!edit} onChange={(e) => { setEmail(e.target.value) }} />
+        <input type="email" value={email} />
         <label>CEP:</label>
-        <input type="text" value={CEP} disabled={!edit} onChange={(e) => { setCEP(e.target.value) }} />
+        <input type="text" value={CEP} />
         <label>Endereco:</label>
-        <input type="text" value={endereco} disabled={!edit} onChange={(e) => { setEndereco(e.target.value) }} />
+        <input type="text" value={endereco} />
         <label>Telefone:</label>
-        <input type="tel" value={telefone} disabled={!edit} onChange={(e) => { setTelefone(e.target.value) }} />
+        <input type="tel" value={telefone} />
         <label>Celular:</label>
-        <input type="tel" value={celular} disabled={!edit} onChange={(e) => { setCelular(e.target.value) }} />
+        <input type="tel" value={celular} />
         <label>Inicio do Convenio:</label>
-        <input type="date" value={inicioConvenio} disabled={!edit} onChange={(e) => { setinicioConvenio(e.target.value) }} />
+        <input type="date" value={inicioConvenio} />
         <label>Termino do convenio:</label>
-        <input type="date" value={fimConvenio} disabled={!edit} onChange={(e) => { setFimConvenio(e.target.value) }} />
-        <button onClick={() => setEdit(!edit)}>editar</button>
+        <input type="date" value={fimConvenio} />
       </>}
       {!CNPJ && <>
         <EmpresasTable />

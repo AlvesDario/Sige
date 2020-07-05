@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import './searchTable.css';
 import Axios from 'axios';
+import NovoConvenio from './newEmpresa';
+import { Button } from 'react-bootstrap';
 
 const App = () => {
   const [empresaTable, setEmpresaTable] = useState([]);
+  const [showAdd, setShowAdd] = useState(false);
 
   const [searchName, setSearchName] = useState("");
   const [searchCNPJ, setSearchCNPJ] = useState("");
@@ -12,10 +15,17 @@ const App = () => {
   const handleTrClick = (e) => {
     window.location.href += "/" + e;
   }
-
+  
   const handleSearchClick = () => {
-    Axios.get("https://jsonbox.io/box_c2aba15389ee5cfa5983/empresas")
-      .then(res => setEmpresaTable(res.data));
+    Axios.get("", {headers:{
+      Authorization: localStorage.getItem('jwtToken')
+    }})
+      .then(res => console.log(res));
+  }
+
+  const handleAdded = (row) => {
+    setShowAdd(false);
+    setEmpresaTable([...empresaTable, row]);
   }
 
   return (<>
@@ -32,9 +42,10 @@ const App = () => {
         <label>Nº convenio</label>
         <input value={searchConvenio} onChange={e => { setSearchConvenio(e.target.value) }} />
       </div>
-      <button onClick={handleSearchClick}>Pesquisar</button>
+      <Button onClick={handleSearchClick}>Pesquisar</Button>
+      <Button onClick={() => setShowAdd(true)}>+</Button>
+      {showAdd && <NovoConvenio onAdd={handleAdded}/>}
     </div>
-
     {empresaTable.length === 0 ? (
       <p>Nenhuma empresa foi encontrado</p>
     ) : (
