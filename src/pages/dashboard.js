@@ -2,11 +2,11 @@ import React from 'react';
 import SideNav from '../components/sidenav';
 import { Chart } from "react-google-charts";
 import { useState } from 'react';
-import Axios from 'axios';
+// import Axios from 'axios';
 
 const App = () => {
   const [chartType, setChartType] = useState("");
-  const [internsByCompany, setIBC] = useState([]);
+  // const [internsByCompany, setIBC] = useState([]);
 
   // https://45.79.139.78/v1/dashboard/effective_internship_contracts_by_company?ranking_size=1
   // https://45.79.139.78/v1/dashboard/interns_by_companies

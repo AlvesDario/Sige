@@ -10,13 +10,40 @@ const App = () => {
   const [searchRA, setSearchRA] = useState("");
   const [searchCurso, setSearchCurso] = useState("");
 
+  useEffect(() => {
+    Axios.get("https://45.79.139.78/v1/intern_records/all", {
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
+      }
+    })
+      .then(({ data }) => {
+        // setAlunoTable(
+          data.intern_records.map(intern => console.log(data))
+          // )
+      });
+  }, [])
+
   const handleTrClick = (e) => {
     window.location.href += "/" + e;
   }
   
   const handleSearchClick = () => {
-    Axios.get("https://jsonbox.io/box_c2aba15389ee5cfa5983/alunos")
-      .then(res => setAlunoTable(res.data));
+    if (!searchName && !searchRA && !searchCurso) {
+      Axios.get("https://45.79.139.78/v1/intern_records/all", {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
+        }
+      })
+        .then(res => setAlunoTable(res.data));
+      return;
+    }
+    let query = "?q="
+    if (searchName)
+      query += "nome:" + searchName + "*";
+    if (searchRA)
+      query += (searchName ? "," : "") + "RA:" + searchRA + "*";
+    if (searchCurso)
+      query += (searchName || searchRA ? "," : "") + "curso:" + searchCurso + "*";
   }
 
   return (<>
