@@ -10,24 +10,32 @@ const App = () => {
   const [searchRA, setSearchRA] = useState("");
   const [searchCurso, setSearchCurso] = useState("");
 
+  // teoricamente funciona, precisa de dados pra testar
   useEffect(() => {
     Axios.get("https://45.79.139.78/v1/intern_records/all", {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
       }
     })
-      .then(({ data }) => {
+      .then(({ data }) => {// name, ra, course_name
+        data.intern_records.map(intern => {
+          setAlunoTable([...alunoTable, {
+            nome: intern.name,
+            RA: intern.ra,
+            curso: intern.course_name
+          }])
+        })
+
         // setAlunoTable(
-          console.log(data)
-          data.intern_records.map(intern => console.log(intern))
-          // )
+        console.log(data)
+        // )
       });
   }, [])
 
   const handleTrClick = (e) => {
     window.location.href += "/" + e;
   }
-  
+
   const handleSearchClick = () => {
     if (!searchName && !searchRA && !searchCurso) {
       Axios.get("https://45.79.139.78/v1/intern_records/all", {
@@ -38,32 +46,31 @@ const App = () => {
         .then(res => setAlunoTable(res.data));
       return;
     }
-    // let query = "?q="
-    // if (searchName)
-    //   query += "nome:" + searchName + "*";
-    // if (searchRA)
-    //   query += (searchName ? "," : "") + "RA:" + searchRA + "*";
-    // if (searchCurso)
-    //   query += (searchName || searchRA ? "," : "") + "curso:" + searchCurso + "*";
+    if (searchName)
+      setAlunoTable(alunoTable.filter(aluno => aluno.nome.includes(searchName)))
+    if (searchRA)
+      setAlunoTable(alunoTable.filter(aluno => aluno.RA.includes(searchRA)))
+    if (searchCurso)
+      setAlunoTable(alunoTable.filter(aluno => aluno.curso.includes(searchCurso)))
   }
 
   return (<>
     <div className="searchForm">
       <div className="searchInputForm">
         <label><FormattedMessage id="nome_aluno" /></label>
-        <input value={searchName} onChange={e => {setSearchName(e.target.value)}}/>
+        <input value={searchName} onChange={e => { setSearchName(e.target.value) }} />
       </div>
       <div className="searchInputForm">
         <label>RA</label>
-        <input value={searchRA} onChange={e => {setSearchRA(e.target.value)}}/>
+        <input value={searchRA} onChange={e => { setSearchRA(e.target.value) }} />
       </div>
       <div className="searchInputForm">
         <label><FormattedMessage id="curso" /></label>
-        <input value={searchCurso} onChange={e => {setSearchCurso(e.target.value)}}/>
+        <input value={searchCurso} onChange={e => { setSearchCurso(e.target.value) }} />
       </div>
       <button onClick={handleSearchClick}><FormattedMessage id='pesquisar' /></button>
     </div>
-    
+
     {alunoTable.length === 0 ? (
       <p>Nenhum aluno foi encontrado</p>
     ) : (
