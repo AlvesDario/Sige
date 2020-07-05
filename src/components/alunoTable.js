@@ -38,8 +38,16 @@ const App = (props) => {
           Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
         }
       })
-        .then(res => setAlunoTable(res.data));
-      return;
+        .then(({ data }) => {// name, ra, course_name
+          setAlunoTable([]);
+          data.intern_records.map(intern => {
+            return setAlunoTable(alunotable => [...alunotable, {
+              nome: intern.name,
+              RA: intern.ra,
+              curso: intern.course_name
+            }])
+          })
+        });
     }
     if (searchName)
       setAlunoTable(alunoTable.filter(aluno => aluno.nome.includes(searchName)))
