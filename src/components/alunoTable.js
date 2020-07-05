@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FormattedMessage } from 'react-intl';
 import './searchTable.css';
 import Axios from 'axios';
@@ -18,7 +18,8 @@ const App = () => {
     })
       .then(({ data }) => {
         // setAlunoTable(
-          data.intern_records.map(intern => console.log(data))
+          console.log(data)
+          data.intern_records.map(intern => console.log(intern))
           // )
       });
   }, [])
@@ -37,13 +38,13 @@ const App = () => {
         .then(res => setAlunoTable(res.data));
       return;
     }
-    let query = "?q="
-    if (searchName)
-      query += "nome:" + searchName + "*";
-    if (searchRA)
-      query += (searchName ? "," : "") + "RA:" + searchRA + "*";
-    if (searchCurso)
-      query += (searchName || searchRA ? "," : "") + "curso:" + searchCurso + "*";
+    // let query = "?q="
+    // if (searchName)
+    //   query += "nome:" + searchName + "*";
+    // if (searchRA)
+    //   query += (searchName ? "," : "") + "RA:" + searchRA + "*";
+    // if (searchCurso)
+    //   query += (searchName || searchRA ? "," : "") + "curso:" + searchCurso + "*";
   }
 
   return (<>
