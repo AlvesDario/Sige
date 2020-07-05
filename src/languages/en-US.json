@@ -69,5 +69,10 @@
 
     "funcionario": "Employee",
     "adm": "Administrator",
-    "master": "Master"
+    "master": "Master",
+
+    "erro_role": "User role change error",
+    "disable": "User disable",
+
+    "delete": "User delete"
 }

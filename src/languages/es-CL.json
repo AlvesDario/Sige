@@ -66,5 +66,8 @@
 
     "nenhum_usuario": "No se encontraron usuarios",
 
-    "sair": "Salir"
+    "sair": "Salir",
+    "erro_role": "Error de cambio de rol del usuario",
+    "disable": "Deshabilitar usuario",
+    "delete": "Borrar usuario"
 }
