@@ -46,7 +46,7 @@ const App = () => {
         <form onSubmit={handleSubmit}>
             <h1><FormattedMessage id="redefinir_senha" /></h1>
             <FormGroup controlId="email" bsSize="large">
-                <FormLabel><FormattedMessage id="email" /></FormLabel>
+                <FormLabel><FormattedMessage id="e-mail" /></FormLabel>
                 <FormControl type="email" value={email} disabled={true} />
             </FormGroup>
             <FormGroup >

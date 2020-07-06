@@ -22,7 +22,6 @@ const App = () => {
       }
     }).then(res => {
       if (res.status === 200) {
-        alert("Usuário deletado do sistema com sucesso");
         refreshPage();
       }
     }).catch(() => {
@@ -87,9 +86,13 @@ const App = () => {
       <p><FormattedMessage id="nenhum_usuario" /></p>
     ) : (
         <table className="searchTable">
+          <td><h4><FormattedMessage id="nome_sem_ponto" /></h4></td>
+          <td><h4><FormattedMessage id="e-mail_sem_ponto" /></h4></td>
+          <td><h4><FormattedMessage id="alterar_permissao" /></h4></td>
+          <td><h4><FormattedMessage id="disable" /></h4></td>
+          <td><h4><FormattedMessage id="delete" /></h4></td>
           <tbody>
             {users.map(user => <tr key={user.email}>
-              <td>{user.id}</td>
               <td>{user.name}</td>
               <td>{user.email}</td>
               <td>
@@ -104,7 +107,9 @@ const App = () => {
                 <button onClick={() => disableUser(user.id)}><FormattedMessage id="disable" /></button>
               </td>
               <td>
-                <button onClick={() => deleteUser(user.id)}><FormattedMessage id="delete" /></button>
+                <button>
+                  <img src={require('../img/delete_img.png')} alt="" width="30px" onClick={() => deleteUser(user.id)} />
+                </button>
               </td>
             </tr>)}
           </tbody>

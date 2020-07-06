@@ -72,5 +72,11 @@
     "sair": "Salir",
     "erro_role": "Error de cambio de rol del usuario",
     "disable": "Deshabilitar usuario",
-    "delete": "Borrar usuario"
+    "delete": "Borrar usuario",
+    "aprovar_usuario": "Aprobar usuario",
+
+    "nome_sem_ponto": "Nombre",
+    "e-mail_sem_ponto": "Correo electrónico",
+
+    "alterar_permissao": "Cambiar permiso"
 }

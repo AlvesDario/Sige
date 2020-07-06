@@ -78,5 +78,11 @@
 
     "delete": "User delete",
 
-    "voltar": "Return"
+    "voltar": "Return",
+    "aprovar_usuario": "Approve user",
+
+    "nome_sem_ponto": "Name",
+    "e-mail_sem_ponto": "E-mail",
+
+    "alterar_permissao": "Change permission"
 }

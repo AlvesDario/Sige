@@ -14,6 +14,20 @@ const App = () => {
     window.location.reload(false);
   }
 
+  function deleteUser(id) {
+    Axios.delete("https://45.79.139.78/v1/management/users/" + id, {
+      headers: {
+          Authorization: 'Bearer ' + localStorage.getItem("jwtToken")
+      }
+    }).then(res => {
+      if (res.status === 200) {
+        refreshPage();
+      }
+    }).catch(() => {
+      alert("Error in user delete");
+    })
+  }
+
   function aceptUser(id) {
     Axios.put("https://45.79.139.78/v1/management/users/" + id + "/enable", {
         key: "value"
@@ -53,14 +67,22 @@ const App = () => {
     ) : (
         <table className="searchTable">
           <tbody>
+            <td><h4><FormattedMessage id="nome_sem_ponto" /></h4></td>
+            <td><h4><FormattedMessage id="e-mail_sem_ponto" /></h4></td>
+            <td><h4><FormattedMessage id="aprovar_usuario" /></h4></td>
+            <td><h4><FormattedMessage id="delete" /></h4></td>
             {pendingUsers.map(user => <tr key={user.email}>
-              <td>{user.id}</td>
               <td>{user.name}</td>
               <td>{user.email}</td>
               <td>
                   <button>
                     <img src={require('../img/correct_img.png')} alt="" width="30px" onClick={() => aceptUser(user.id)} />
                   </button>
+              </td>
+              <td>
+                <button>
+                  <img src={require('../img/delete_img.png')} alt="" width="30px" onClick={() => deleteUser(user.id)} />
+                </button>
               </td>
             </tr>)}
           </tbody>
