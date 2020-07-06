@@ -55,7 +55,7 @@ const App = () => {
         <Route exact path="/aluno/" component={Aluno} />
         <Route path="/aluno/:RA" component={Aluno} />
         <Route exact path="/empresas/" component={Empresa}/>
-        <Route path="/empresas/:CNPJ" component={Empresa} />
+        <Route path="/empresas/:NCON" component={Empresa} />
         <Route exact path="/contratos/" component={Contrato}/>
         <Route path="/contratos/:NCON" component={Contrato} />
         <Route path="/dashboard" component={DashboardPage} />
