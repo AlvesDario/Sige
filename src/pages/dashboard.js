@@ -1,80 +1,99 @@
 import React from 'react';
 import SideNav from '../components/sidenav';
 import { Chart } from "react-google-charts";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { FormattedMessage } from 'react-intl';
 
 const App = () => {
   const [chartType, setChartType] = useState("");
-  const [internsByCompany, setIBC] = useState([]);
-  
-  function getDash(op) {
-  }
-  // https://45.79.139.78/v1/dashboard/effective_internship_contracts_by_company?ranking_size=1
-  // https://45.79.139.78/v1/dashboard/interns_by_companies
-  // {'interns_by_companies': [{'Test Company 0': 2}]}
-  // Axios.get("https://45.79.139.78/v1/dashboard/effective_internship_contracts_by_company?ranking_size=1").then(( data ) => {
-  //   console.log(data);
-  // });
-  // Axios.get("").then(({ data }) => {
+  const [estagCompan, setEstagCompany] = useState([['Empresa', 'Quantidade']]);
+  const [estagEfetive, setEstagEfetive] = useState([['Empresa', 'Efetivos']])
 
-  // })
+
+  useEffect(() => {
+    const funcoes = {estagiarios_empresas: () => {
+      Axios.get("https://45.79.139.78/v1/dashboard/interns_by_companies", {
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+        }
+      }).then(({ data }) => {
+        data.interns_by_companies.map(register => {
+          return setEstagCompany(registerTable=> [...registerTable, [
+            register.company_name, register.interns_count]]
+          )
+        }
+        )
+      })
+    }, estagiarios_efetivos: () => {
+      Axios.get("https://45.79.139.78/v1/dashboard/effective_internship_contracts_by_company", {
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+        }
+      }).then(({ data }) => {
+        data.effective_contracts_by_company.map(register => {
+          return setEstagEfetive(registerTable=> [...registerTable, [
+            register.company_name, register.contracts_count]]
+          )
+        }
+        )
+      }
+      )
+    }
+  }
+  const funcao = funcoes[chartType]
+  if(funcao){
+    funcao()
+  }
+  }, [chartType]
+  )
+
+
   return (<>
     <SideNav />
     <div className='content'>
       <h1>
         <FormattedMessage id="dashboard" />
       </h1>
-      <select name="" id="" onChange={(e) => getDash(e.target.value)}>
+      <select name="" id="" onChange={(e) => setChartType(e.target.value)}>
         <option>Selecione a visualização do gráfico</option>
-        <option value="estagiarios_empresas">estagiarios por empresa</option>
-        <option value="estagiarios_efetivos">estagiarios que foi efetivado</option>
+        <option value="estagiarios_empresas">Estagiários ativos por empresa</option>
+        <option value="estagiarios_efetivos">Estagiários efetivos por empresa</option>
       </select>
-      {chartType === "estagiarios_curso" && <Chart
+      {chartType === "estagiarios_empresas" && <Chart
         width={800}
         height={600}
         chartType="ColumnChart"
         loader={<div>Loading Chart</div>}
-        data={[
-          ['Estagiarios', 'Curso'],
-          ['ADS', 50],
-          ['Gestão', 20],
-          ['Comex', 1],
-        ]}
-        options={{
-          title: 'Estagiarios por curso',
-          chartArea: { width: '50%' },
-          hAxis: {
-            title: 'Estagiarios',
-            minValue: 0,
-          },
-          vAxis: {
-            title: 'Curso',
-          },
-        }}
-        legendToggle
-      />}
-      {chartType === "estagiarios_empresa" && <Chart
-        width={800}
-        height={600}
-        chartType="ColumnChart"
-        loader={<div>Loading Chart</div>}
-        data={[
-          ['Estagiarios', 'Curso'],
-          ["ibm", 20],
-          ["joao dere", 10],
-          ["diebold", 15]
-        ]}
+        data={estagCompan}
         options={{
           title: 'Estagiarios por empresa',
           chartArea: { width: '50%' },
           hAxis: {
-            title: 'Estagiarios',
+            title: 'Empresa',
             minValue: 0,
           },
           vAxis: {
-            title: 'Empresa',
+            title: 'Quantidade de estagiários ativos',
+          },
+        }}
+        legendToggle
+      />}
+      {chartType === "estagiarios_efetivos" && <Chart
+        width={800}
+        height={600}
+        chartType="ColumnChart"
+        loader={<div>Loading Chart</div>}
+        data={estagEfetive}
+        options={{
+          title: 'Estagiarios efetivos por empresa',
+          chartArea: { width: '50%' },
+          hAxis: {
+            title: 'Empresas',
+            minValue: 0,
+          },
+          vAxis: {
+            title: 'Efetivos',
           },
         }}
         legendToggle
