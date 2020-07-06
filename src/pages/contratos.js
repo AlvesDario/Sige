@@ -7,7 +7,6 @@ import Axios from "axios";
 
 const App = () => {
   const context = useContext(Context);
-  // const [edit, setEdit] = useState(false);
 
   const { NCON } = useParams();
   const [RA, setRA] = useState("");
@@ -17,7 +16,7 @@ const App = () => {
   const [razao, setRazao] = useState("");
   const [inicioContrato, setInicioContrato] = useState("");
   const [terminoContrato, setTerminoContrato] = useState("");
-  const [quiz, setQuiz] = useState({});
+  // const [quiz, setQuiz] = useState({});
 
   useEffect(() => {
     if (NCON) {
@@ -27,14 +26,14 @@ const App = () => {
         }
       }).then(({ data }) => {
         const { intern_ra, company_id, subcontracts,
-          quiz, status } = data.internship_contract;
+          status } = data.internship_contract;
         console.log(data.internship_contract)
         setRA(intern_ra);
         setEmpresaID(company_id);
         setStatus(status)
-        if (quiz) {
-          setQuiz(quiz);
-        }
+        // if (quiz) {
+        //   setQuiz(quiz);
+        // }
         if (subcontracts.length) {
           setInicioContrato(subcontracts[0].start_date);
           setTerminoContrato(subcontracts[0].ending_date);
@@ -83,7 +82,7 @@ const App = () => {
         <label>Numero do contrato:</label>
         <input type="text" value={NCON} disabled />
         <label>Status:</label>
-        <input type="text" value={status == 1 ? "Em andamento" : "Encerrado"} disabled />
+        <input type="text" value={status === 1 ? "Em andamento" : "Encerrado"} disabled />
         <label>RA:</label>
         <input type="text" value={RA} disabled />
         <label>Nome do Aluno:</label>

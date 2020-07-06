@@ -9,7 +9,7 @@ const App = () => {
   const context = useContext(Context);
   const [users, setUsers] = useState([]);
 
-  const [error, setError] = useState(0);
+  const [error] = useState(0);
 
   function refreshPage() {
     window.location.reload(false);

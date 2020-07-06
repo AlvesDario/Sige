@@ -53,11 +53,11 @@ const App = (props) => {
         });
     }
     if (searchName)
-      setEmpresaTable(empresaTable.filter(empresa => empresa.nome.includes(searchName)))
+      setEmpresaTable(table => table.filter(empresa => empresa.nome.includes(searchName)))
     if (searchCNPJ)
-      setEmpresaTable(empresaTable.filter(empresa => empresa.CNPJ.includes(searchCNPJ)))
+      setEmpresaTable(table => table.filter(empresa => empresa.CNPJ.includes(searchCNPJ)))
     if (searchConvenio)
-      setEmpresaTable(empresaTable.filter(empresa => empresa.nConvenio.includes(searchConvenio)))
+      setEmpresaTable(table => table.filter(empresa => empresa.nConvenio.includes(searchConvenio)))
   }
 
   const handleAdded = () => {

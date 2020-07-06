@@ -8,7 +8,7 @@ const App = () => {
   const context = useContext(Context);
   const [pendingUsers, setPendingUsers] = useState([]);
 
-  const [error, setError] = useState(0);
+  const [error] = useState(0);
 
   function refreshPage() {
     window.location.reload(false);
