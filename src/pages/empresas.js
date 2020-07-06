@@ -7,73 +7,40 @@ import Axios from "axios";
 
 const App = () => {
   const context = useContext(Context);
-  const [edit, setEdit] = useState(false);
 
-  const { CNPJ } = useParams();
+  const { NCON } = useParams();
+  const [CNPJ, setCNPJ] = useState("");
   const [razao, setRazao] = useState("");
   const [dataAbertura, setDataAbertura] = useState("");
   const [email, setEmail] = useState("");
   const [CEP, setCEP] = useState("");
   const [endereco, setEndereco] = useState("");
   const [telefone, setTelefone] = useState("");
-  const [celular, setCelular] = useState("");
   const [inicioConvenio, setinicioConvenio] = useState("");
   const [fimConvenio, setFimConvenio] = useState("");
 
   useEffect(() => {
-    if (CNPJ) {
-      // if (!edit) {
-      //   Axios.get("https://jsonbox.io/box_c2aba15389ee5cfa5983/empresas?q=CNPJ:" + CNPJ).then(({data}) => {
-      //     if (data[0]?1:0) {
-      //       Axios.put("https://jsonbox.io/box_c2aba15389ee5cfa5983/empresas/" + data[0]._id, {
-      //         CNPJ: CNPJ,
-      //         razao: razao,
-      //         dataAbertura: dataAbertura,
-      //         email: email,
-      //         CEP: CEP,
-      //         endereco: endereco,
-      //         telefone: telefone,
-      //         celular: celular,
-      //         inicioConvenio: inicioConvenio,
-      //         fimConvenio: fimConvenio
-      //       })
-      //     }
-      //     else{
-      //       Axios.post("https://jsonbox.io/box_c2aba15389ee5cfa5983/empresas", {
-      //         CNPJ: CNPJ,
-      //         razao: razao,
-      //         dataAbertura: dataAbertura,
-      //         email: email,
-      //         CEP: CEP,
-      //         endereco: endereco,
-      //         telefone: telefone,
-      //         celular: celular,
-      //         inicioConvenio: inicioConvenio,
-      //         fimConvenio: fimConvenio
-      //       }).then(data => {
-      //         console.log("cadastrado com sucesso")
-      //       })
-      //     }
-      //   })
-      // }
+    if (NCON) {
+      Axios.get("https://45.79.139.78/v1/associated_companies/companies/" + NCON, {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
+        }
+      }).then(({ data }) => {
+        const {cnpj, company_name, opening_date, 
+          contact_email, zip_code, address, contact_phone, 
+          associated_since, associated_until } = data.associated_company;
+          setCNPJ(cnpj||"");
+          setRazao(company_name||"");
+          setDataAbertura(opening_date||"");
+          setEmail(contact_email||"");
+          setCEP(zip_code||"");
+          setEndereco(address||"");
+          setTelefone(contact_phone||"");
+          setinicioConvenio(associated_since||"");
+          setFimConvenio(associated_until||"");
+      });
     }
-  }, [CNPJ, razao, dataAbertura, email, CEP, endereco, telefone, celular, inicioConvenio, fimConvenio]);
-
-
-
-  useEffect(() => {
-    Axios.get(/** pegar dados do aluno baseado no CNPJ*/).then(res => {
-      setRazao(res.razao);
-      setDataAbertura(res.dataAbertura);
-      setEmail(res.email);
-      setCEP(res.CEP);
-      setEndereco(res.endereco);
-      setTelefone(res.telefone);
-      setCelular(res.celular);
-      setinicioConvenio(res.inicioConvenio);
-      setFimConvenio(res.inicioConvenio);
-    })
-  }, [CNPJ])
+  }, [NCON]);
 
   useEffect(()=>{
     context.selectLang();
@@ -83,29 +50,29 @@ const App = () => {
     <SideNav />
     <div className="content">
       <h1>Empresas conveniadas</h1>
-      {CNPJ && <>
+      {NCON && <>
+        <label>Numero do convenio:</label>
+        <input type="text" value={NCON} disabled />
         <label>CNPJ:</label>
-        <input type="text" value={CNPJ} />
+        <input type="text" value={CNPJ} disabled />
         <label>Razão Social:</label>
-        <input type="text" value={razao} />
+        <input type="text" value={razao} disabled />
         <label>Data de abertura:</label>
-        <input type="date" value={dataAbertura} />
+        <input type="date" value={dataAbertura} disabled />
         <label>Email:</label>
-        <input type="email" value={email} />
+        <input type="email" value={email} disabled />
         <label>CEP:</label>
-        <input type="text" value={CEP} />
+        <input type="text" value={CEP} disabled />
         <label>Endereco:</label>
-        <input type="text" value={endereco} />
+        <input type="text" value={endereco} disabled />
         <label>Telefone:</label>
-        <input type="tel" value={telefone} />
-        <label>Celular:</label>
-        <input type="tel" value={celular} />
+        <input type="tel" value={telefone} disabled />
         <label>Inicio do Convenio:</label>
-        <input type="date" value={inicioConvenio} />
+        <input type="date" value={inicioConvenio} disabled />
         <label>Termino do convenio:</label>
-        <input type="date" value={fimConvenio} />
+        <input type="date" value={fimConvenio} disabled />
       </>}
-      {!CNPJ && <>
+      {!NCON && <>
         <EmpresasTable />
       </>}
     </div>
