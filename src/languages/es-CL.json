@@ -51,8 +51,10 @@
     "ingles": "Inglés",
     "portugues": "Portugués",
     "espanhol": "Español",
+    "voltar": "Vuelve",
 
     "cadastrar": "Regístrate",
+    "confirmar_senha": "Confirmar contraseña",
 
     "nova_senha": "Nueva contraseña:",
     "digite_novamente": "Confirmar nueva contraseña:",

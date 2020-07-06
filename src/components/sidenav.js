@@ -11,6 +11,7 @@ const App = () => {
 
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
+  const [masterAdmin, setMasterAdmin] = useState(false);
 
   function clearLocalStorage(){
     localStorage.removeItem("jwtToken");
@@ -26,6 +27,11 @@ const App = () => {
     }).then(res => {
       if (res.status === 200) {
           setRole(res.data.user.role);
+          if (res.data.user.role === 1){
+            setMasterAdmin(false);
+          } else {
+            setMasterAdmin(true);
+          }
       }
     }).catch(() => {
     })
@@ -54,11 +60,24 @@ const App = () => {
       <a href="/contratos"><FormattedMessage id='contratos' /></a>
       <a href="/dashboard"><FormattedMessage id='dashboard' /></a>
       <a href="/configuracao"><FormattedMessage id='configuracao' /></a>
-      <a href="/pending_access"><FormattedMessage id='usuarios_pendentes' /></a>
-      <a href="/access_management"><FormattedMessage id='adm_acessos' /></a>
+      {masterAdmin === false ? (
+      <span></span>
+      ) : (
+        <a href="/pending_access">
+          <FormattedMessage id='usuarios_pendentes' />
+        </a>
+      )}
+      {masterAdmin === false ? (
+      <span></span>
+      ) : (
+        <a href="/access_management">
+          <FormattedMessage id='adm_acessos' />
+        </a>
+      )}
       <a href="/logout" onClick={() => clearLocalStorage()}><FormattedMessage id='sair' /></a>
     </div>
   </>);
 };
+
 
 export default App;

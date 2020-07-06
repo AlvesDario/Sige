@@ -11,6 +11,7 @@
     "esqueci": "Esqueci minha senha?",
 
     "bem_vindo": "Bem-vindo ao Sistema Integrado de Gestão de Estágio",
+    "voltar": "Voltar",
 
     "importar_dados": "Importar dados - SIGA",
     "escolher_arquivo": "Escolha um arquivo antes de apertar o botão Enviar!",
@@ -57,6 +58,7 @@
 
     "nova_senha": "Nova senha:",
     "digite_novamente": "Confirmar nova senha:",
+    "confirmar_senha": "Confirmar senha:",
     "confirmar": "Confirmar",
 
     "usuarios_pendentes": "Usuários pendentes",

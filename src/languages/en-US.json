@@ -74,6 +74,9 @@
 
     "erro_role": "User role change error",
     "disable": "User disable",
+    "confirmar_senha": "Confirm password",
 
-    "delete": "User delete"
+    "delete": "User delete",
+
+    "voltar": "Return"
 }
