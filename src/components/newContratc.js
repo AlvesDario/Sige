@@ -35,37 +35,41 @@ const App = (props) => {
           Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
         }
       }).then(({ data }) => {
-        const empresa_associada = data.associated_companies.filter((company) => company.cnpj===empresaCNPJ);
-        console.log(empresa_associada);
-        const { id, company_name } = empresa_associada[0];
-        setEmpresaID(id || "");
-        setEmpresaName(company_name || "");
+        try {
+          const empresa_associada = data.associated_companies.filter((company) => company.cnpj === empresaCNPJ);
+          if (Array.isArray(empresa_associada) && empresa_associada[0]) {
+            const { id, company_name } = empresa_associada[0];
+            setEmpresaID(id || "");
+            setEmpresaName(company_name || "");
+          }
+        } catch (err) { console.log(err) }
       });
     }
-
   }
 
   const handleAdd = () => {
     // /v1/internship_contracts/contracts
     Axios.post("https://45.79.139.78/v1/internship_contracts/contracts", {
-      internship_contract: {
-        status: 1,
+      new_contract_data: {
         intern_ra: RA,
-        company_id: empresaID,
-        subcontracts: [{
-          start_date: startDate,
-          ending_date: endingDate
-        }],
-        quiz: {
-          has_become_effective: false,
-          has_switched_companies: false
-        }
+        company_id: empresaID
       }
     }, {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
       }
-    });
+    }).then(({ data }) => {
+      Axios.post("https://45.79.139.78/v1/internship_contracts/contracts/" + data.internship_contract.id, {
+        new_subcontract_data: {
+          start_date: new Date(startDate).toISOString(),
+          ending_date: new Date(endingDate).toISOString()
+        }
+      }, {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
+        }
+      })
+    })
     props.onAdd()
   }
 
@@ -81,9 +85,9 @@ const App = (props) => {
         <Form.Group>
           <Form.Label>RA do aluno:</Form.Label>
           <Form.Control value={RA} onChange={e => setRA(e.target.value)} onBlur={checkRA} type="text" placeholder="RA do aluno" />
-          
+
           <Form.Text className="text-muted">
-            {alunoName?"Aluno encontrado: "+alunoName:"Aluno não encontrado, verifique o RA"}
+            {alunoName ? "Aluno encontrado: " + alunoName : "Aluno não encontrado, verifique o RA"}
           </Form.Text>
         </Form.Group>
 
@@ -91,21 +95,21 @@ const App = (props) => {
           <Form.Label>CNPJ:</Form.Label>
           <Form.Control value={empresaCNPJ} onChange={e => setEmpresaCNPJ(e.target.value)} onBlur={checkCNPJ} type="text" placeholder="CNPJ da empresa" />
           <Form.Text className="text-muted">
-            {empresaName?"Empresa conveniada não encontrado: "+empresaName:"Empresa conveniada não encontrado"}
+            {empresaName ? "Empresa conveniada encontrado: " + empresaName : "Empresa conveniada não encontrado"}
           </Form.Text>
         </Form.Group>
 
-        <Form.Group hidden={!alunoName&&!empresaCNPJ}>
+        <Form.Group hidden={!alunoName && !empresaCNPJ}>
           <Form.Label>Data de inicio:</Form.Label>
           <Form.Control value={startDate} type="date" placeholder="Data de inicio do contrato" onChange={e => setStartDate(e.target.value)} />
         </Form.Group>
 
-        <Form.Group hidden={!alunoName&&!empresaCNPJ}>
+        <Form.Group hidden={!alunoName && !empresaCNPJ}>
           <Form.Label>Data de abertura:</Form.Label>
           <Form.Control value={endingDate} type="date" placeholder="Data de termino do contrato" onChange={e => setEndingDate(e.target.value)} />
         </Form.Group>
 
-        <Form.Group hidden={!alunoName&&!empresaCNPJ}>
+        <Form.Group hidden={!alunoName && !empresaCNPJ}>
           <Button onClick={handleAdd} disabled={!validAdd()}>
             Adicionar
             </Button>

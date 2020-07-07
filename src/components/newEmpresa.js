@@ -26,14 +26,14 @@ const App = (props) => {
     Axios.post("https://45.79.139.78/v1/associated_companies/companies", {
       new_company_data: {
         address: endereco,
-        associated_since: inicioConvenio,
-        associated_until: fimConvenio,
+        associated_since: new Date(inicioConvenio).toISOString(),
+        associated_until: new Date(fimConvenio).toISOString(),
         cnpj: CNPJ,
         company_name: razao,
         contact_email: email,
         contact_person: contato,
         contact_phone: telefone,
-        opening_date: dataAbertura,
+        opening_date: new Date(dataAbertura).toISOString(),
         zip_code: CEP
       }
     }, {
