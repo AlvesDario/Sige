@@ -25,7 +25,7 @@ const App = (props) => {
           }])
         })
       });
-  }, [props])
+  }, [])
 
   const handleTrClick = (e) => {
     window.location.href += "/" + e;
