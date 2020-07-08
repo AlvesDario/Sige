@@ -1,40 +1,79 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { FormattedMessage } from 'react-intl';
 import './searchTable.css';
 import Axios from 'axios';
 
-const App = () => {
+const App = (props) => {
   const [alunoTable, setAlunoTable] = useState([]);
 
   const [searchName, setSearchName] = useState("");
   const [searchRA, setSearchRA] = useState("");
   const [searchCurso, setSearchCurso] = useState("");
 
+  useEffect(() => {
+    Axios.get("https://45.79.139.78/v1/intern_records/all", {
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
+      }
+    })
+      .then(({ data }) => {// name, ra, course_name
+        data.intern_records.map(intern => {
+          return setAlunoTable(alunotable => [...alunotable, {
+            nome: intern.name,
+            RA: intern.ra,
+            curso: intern.course_name
+          }])
+        })
+      });
+  }, [])
+
   const handleTrClick = (e) => {
     window.location.href += "/" + e;
   }
-  
+
   const handleSearchClick = () => {
-    Axios.get(/** pega lista de alunos*/)
-      .then(res => setAlunoTable(res));
+    if (!searchName && !searchRA && !searchCurso) {
+      Axios.get("https://45.79.139.78/v1/intern_records/all", {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
+        }
+      })
+        .then(({ data }) => {// name, ra, course_name
+          setAlunoTable([]);
+          data.intern_records.map(intern => {
+            return setAlunoTable(alunotable => [...alunotable, {
+              nome: intern.name,
+              RA: intern.ra,
+              curso: intern.course_name
+            }])
+          })
+        });
+    }
+    if (searchName)
+      setAlunoTable(alunoTable.filter(aluno => aluno.nome.includes(searchName)))
+    if (searchRA)
+      setAlunoTable(alunoTable.filter(aluno => aluno.RA.includes(searchRA)))
+    if (searchCurso)
+      setAlunoTable(alunoTable.filter(aluno => aluno.curso.includes(searchCurso)))
   }
 
   return (<>
     <div className="searchForm">
       <div className="searchInputForm">
-        <label>Nome do Aluno</label>
-        <input value={searchName} onChange={e => {setSearchName(e.target.value)}}/>
+        <label><FormattedMessage id="nome_aluno" /></label>
+        <input value={searchName} onChange={e => { setSearchName(e.target.value) }} />
       </div>
       <div className="searchInputForm">
         <label>RA</label>
-        <input value={searchRA} onChange={e => {setSearchRA(e.target.value)}}/>
+        <input value={searchRA} onChange={e => { setSearchRA(e.target.value) }} />
       </div>
       <div className="searchInputForm">
-        <label>Curso</label>
-        <input value={searchCurso} onChange={e => {setSearchCurso(e.target.value)}}/>
+        <label><FormattedMessage id="curso" /></label>
+        <input value={searchCurso} onChange={e => { setSearchCurso(e.target.value) }} />
       </div>
-      <button onClick={handleSearchClick}>Pesquisar</button>
+      <button onClick={handleSearchClick}><FormattedMessage id='pesquisar' /></button>
     </div>
-    
+
     {alunoTable.length === 0 ? (
       <p>Nenhum aluno foi encontrado</p>
     ) : (

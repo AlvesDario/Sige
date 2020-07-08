@@ -1,0 +1,88 @@
+{
+    "email_ou_ra": "E-mail:",
+    "senha": "Password:",
+    "acessar": "Login",
+    "erro_login_401": "Wrong credentials",
+    "erro_login_404": "User has no accounts",
+    "erro_login_405": "Wrong method",
+    "erro_login_422": "Account not yet enabled",
+    "erro_login_599": "Something went wrong",
+    "esqueci": "Forgot password?",
+
+    "bem_vindo": "Welcome to Sistema Integrado de Gestão de Estágio",
+
+    "importar_dados": "Import data - SIGA",
+    "escolher_arquivo": "Choose a file before pressing the Send button!",
+    "detalhes": "Details:",
+    "nome_arquivo": "File name:",
+    "tipo_arquivo": "File type",
+    "ultima_modificacao": "Last modified",
+    "enviar": "Submit",
+
+    "alunos": "Students",
+    "nome_aluno": "Student name",
+    "curso": "Course",
+    "pesquisar": "Search",
+
+    "nome": "Name:",
+    "nascimento": "Birth",
+    "estado_civil": "Civil status:",
+    "nome_mae": "Mother's name:",
+    "Curso": "Course:",
+    "turno": "Round:",
+    "e-mail": "E-mail:",
+    "endereco": "Address:",
+    "cep": "Zip code:",
+    "telefone": "Telephone:",
+    "celular": "Cellphone:",
+    "editar": "Edit",
+
+    "inicio": "Start",
+
+    "empresas_conveniadas": "Associated companies",
+    "contratos": "Contracts",
+    "dashboard": "Dashboard",
+    "configuracao": "Configuration",
+
+    "selecione_grafico": "Select the graph view",
+    "redefinir_senha": "Reset password",
+    "habilitar_acesso": "Enable access",
+
+    "ingles": "English",
+    "portugues": "Portuguese",
+    "espanhol": "Spanish",
+
+    "cadastrar": "Sign up",
+
+    "nova_senha": "New password:",
+    "digite_novamente": "Confirm new password:",
+    "confirmar": "Submit",
+
+    "usuarios_pendentes": "Pending users",
+
+    "nenhum_registro": "No pending approval record found",
+    "erro_request_pending": "An error occurred while releasing the user",
+
+    "adm_acessos": "Access management",
+    "nenhum_usuario": "No users found",
+
+    "sair": "Logout",
+
+    "funcionario": "Employee",
+    "adm": "Administrator",
+    "master": "Master",
+
+    "erro_role": "User role change error",
+    "disable": "User disable",
+    "confirmar_senha": "Confirm password",
+
+    "delete": "User delete",
+
+    "voltar": "Return",
+    "aprovar_usuario": "Approve user",
+
+    "nome_sem_ponto": "Name",
+    "e-mail_sem_ponto": "E-mail",
+
+    "alterar_permissao": "Change permission"
+}

@@ -1,0 +1,89 @@
+{
+    "email_ou_ra": "E-mail:",
+    "senha": "Senha:",
+    "acessar": "Acessar",
+    "erro_login": "Usuário e senha não confere",
+    "erro_login_401": "credencial errada",
+    "erro_login_404": "usuário nao tem conta",
+    "erro_login_405": "metodo errado",
+    "erro_login_422": "conta nao ta habilitada",
+    "erro_login_599": "se der algum problema interno no backend",
+    "esqueci": "Esqueci minha senha?",
+
+    "bem_vindo": "Bem-vindo ao Sistema Integrado de Gestão de Estágio",
+    "voltar": "Voltar",
+
+    "importar_dados": "Importar dados - SIGA",
+    "escolher_arquivo": "Escolha um arquivo antes de apertar o botão Enviar!",
+    "detalhes": "Detalhes:",
+    "nome_arquivo": "Nome do arquivo:",
+    "tipo_arquivo": "Tipo do arquivo:",
+    "ultima_modificacao": "Ultima modificação:",
+    "enviar": "Enviar",
+
+    "alunos": "Alunos",
+    "nome_aluno": "Nome do aluno",
+    "curso": "Curso",
+    "pesquisar": "Pesquisar",
+
+    "nome": "Nome:",
+    "nascimento": "Nascimento:",
+    "estado_civil": "Estado civil:",
+    "nome_mae": "Nome da mãe:",
+    "Curso": "Curso:",
+    "turno": "Turno:",
+    "e-mail": "E-mail:",
+    "endereco": "Endereço:",
+    "cep": "CEP:",
+    "telefone": "Telefone:",
+    "celular": "Celular:",
+    "editar": "Editar",
+
+    "inicio": "Início",
+
+    "empresas_conveniadas": "Empresas conveniadas",
+    "contratos": "Contratos",
+    "dashboard": "Dashboard",
+    "configuracao": "Configuração",
+
+    "selecione_grafico": "Selecione a visualização do gráfico",
+    "redefinir_senha": "Redefinir senha",
+    "habilitar_acesso": "Habilitar acesso",
+
+    "ingles": "Inglês",
+    "portugues": "Português",
+    "espanhol": "Espanhol",
+
+    "cadastrar": "Registrar-se",
+
+    "nova_senha": "Nova senha:",
+    "digite_novamente": "Confirmar nova senha:",
+    "confirmar_senha": "Confirmar senha:",
+    "confirmar": "Confirmar",
+
+    "usuarios_pendentes": "Usuários pendentes",
+    "aprovar_usuario": "Aprovar usuário",
+
+    "nenhum_registro": "Não foi encontrado nenhum registro pendente de aprovação",
+
+    "erro_request_pending": "Ocorreu um erro na liberação do usuário",
+
+    "adm_acessos": "Administração de acessos",
+
+    "nenhum_usuario": "Nenhum usuário encontrado",
+
+    "sair": "Sair",
+
+    "funcionario": "Funcionário",
+    "adm": "Administrador",
+    "master": "Master",
+
+    "erro_role": "Erro na mudança de role do usuário",
+    "disable": "Desabilitar usuário",
+    "delete": "Apagar usuário",
+
+    "nome_sem_ponto": "Nome",
+    "e-mail_sem_ponto": "E-mail",
+    
+    "alterar_permissao": "Alterar permissão"
+}

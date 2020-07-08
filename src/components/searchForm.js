@@ -12,7 +12,7 @@ const App = ({inputs}) => {
         </div>
         )
       })}
-      <button>Pesquisar</button>
+      <button><FormattedMessage id='pesquisar' /></button>
     </div>
   </>)
 }

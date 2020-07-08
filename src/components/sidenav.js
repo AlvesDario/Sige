@@ -1,23 +1,83 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import './sidenav.css';
+import { Context } from '../components/Wrapper';
+import Roles from '../utils/roles';
+import { FormattedMessage } from 'react-intl';
+import Axios from 'axios';
 
 const App = () => {
+
+  const context = useContext(Context);
+
+  const [email, setEmail] = useState("");
+  const [role, setRole] = useState("");
+  const [masterAdmin, setMasterAdmin] = useState(false);
+
+  function clearLocalStorage(){
+    localStorage.removeItem("jwtToken");
+    localStorage.removeItem("email");
+  }
+
+
+  function getRoleUser() {
+    Axios.get("https://45.79.139.78/v1/auth/user", {
+      headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+      }
+    }).then(res => {
+      if (res.status === 200) {
+          setRole(res.data.user.role);
+          if (res.data.user.role === 1){
+            setMasterAdmin(false);
+          } else {
+            setMasterAdmin(true);
+          }
+      }
+    }).catch(() => {
+    })
+  }
+
+  useEffect(()=>{
+    context.selectLang();
+    setEmail(localStorage.getItem('email'))
+    getRoleUser()
+    context.selectLang();
+  }, [context])
+
   return (<>
     <div className="sidebar">
       <div className="Userbox">
         <img alt="avatar" src="https://objetivogru.com/wp-content/uploads/2016/11/fatec.jpg" className="userpic"/>
-        <p className="username">FATEC - Indaiatuba</p>
-        <p className="userID">admin</p>
+        <p>
+          <img alt="" src={require('../img/email_img.png')} width="20px" />   {email}
+        </p>
+        <p>{Roles[role]}</p>
       </div>
-      <a href="/home">Inicio</a>
-      <a href="/import">Importar Dados - SIGA</a>
-      <a href="/aluno">Alunos</a>
-      <a href="/empresas">Empresas Conveniadas</a>
-      <a href="/contratos">Contratos</a>
-      <a href="/dashboard">DashBoard</a>
-      <a href="/config">Configuração</a>
+      <a href="/home"><FormattedMessage id='inicio' /></a>
+      <a href="/import"><FormattedMessage id='importar_dados' /></a>
+      <a href="/aluno"><FormattedMessage id='alunos' /></a>
+      <a href="/empresas"><FormattedMessage id='empresas_conveniadas' /></a>
+      <a href="/contratos"><FormattedMessage id='contratos' /></a>
+      <a href="/dashboard"><FormattedMessage id='dashboard' /></a>
+      <a href="/configuracao"><FormattedMessage id='configuracao' /></a>
+      {masterAdmin === false ? (
+      <span></span>
+      ) : (
+        <a href="/pending_access">
+          <FormattedMessage id='usuarios_pendentes' />
+        </a>
+      )}
+      {masterAdmin === false ? (
+      <span></span>
+      ) : (
+        <a href="/access_management">
+          <FormattedMessage id='adm_acessos' />
+        </a>
+      )}
+      <a href="/logout" onClick={() => clearLocalStorage()}><FormattedMessage id='sair' /></a>
     </div>
   </>);
 };
+
 
 export default App;

@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import SideNav from '../components/sidenav';
 import FileUpload from '../components/fileUpload';
+import { Context } from '../components/Wrapper';
+import { FormattedMessage } from 'react-intl';
 
 const App = () => {
+    const context = useContext(Context);
+
+    useEffect(()=>{
+      context.selectLang();
+    }, [context])
+
     return (<>
     <SideNav/>
     <div className="content">
-        <h1>Importar Dados - SIGA</h1>
+        <h1><FormattedMessage id="importar_dados" /></h1>
         <FileUpload />
     </div>
     </>);

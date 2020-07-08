@@ -1,0 +1,82 @@
+{
+    "email_ou_ra": "E-mail:",
+    "senha": "Contraseña:",
+    "acessar": "Acceso",
+    "erro_login_401": "Credenciales incorrectas",
+    "erro_login_404": "La cuenta no existe",
+    "erro_login_405": "Método equivocado",
+    "erro_login_422": "Cuenta no habilitada todavía",
+    "erro_login_599": "Algo salió mal",
+    "esqueci": "¿Se te olvidó tu contraseña??",
+
+    "bem_vindo": "Bienvenido al Sistema Integrado de Gestão de Estágio",
+
+    "importar_dados": "Datos de importacion - SIGA",
+    "escolher_arquivo": "Elija un archivo antes de presionar el botón Enviar!",
+    "detalhes": "Detalles:",
+    "nome_arquivo": "Nombre del archivo:",
+    "tipo_arquivo": "Tipo de archivo:",
+    "ultima_modificacao": "Última modificación:",
+    "enviar": "Enviar",
+
+    "alunos": "Estudiantes",
+    "nome_aluno": "Nombre del alumno",
+    "curso": "Curso",
+    "pesquisar": "Buscar",
+
+    "nome": "Nombre:",
+    "nascimento": "Nacimiento:",
+    "estado_civil": "Estado civil:",
+    "nome_mae": "Nombre de la madre:",
+    "Curso": "Curso:",
+    "turno": "Redondo:",
+    "e-mail": "Correo electrónico:",
+    "endereco": "Habla a:",
+    "cep": "Código postal:",
+    "telefone": "Teléfono:",
+    "celular": "Teléfono móvil:",
+    "editar": "Editar",
+
+    "inicio": "Início",
+
+    "empresas_conveniadas": "Compañías asociadas",
+    "contratos": "Contratos",
+    "dashboard": "Dashboard",
+    "configuracao": "Configuración",
+
+    "selecione_grafico": "Seleccione la vista de gráfico",
+    "redefinir_senha": "Redefinir contraseña",
+    "habilitar_acesso": "Permitir acceso",
+
+    "ingles": "Inglés",
+    "portugues": "Portugués",
+    "espanhol": "Español",
+    "voltar": "Vuelve",
+
+    "cadastrar": "Regístrate",
+    "confirmar_senha": "Confirmar contraseña",
+
+    "nova_senha": "Nueva contraseña:",
+    "digite_novamente": "Confirmar nueva contraseña:",
+    "confirmar": "Confirmar",
+
+    "usuarios_pendentes": "Usuarios pendientes",
+    "nenhum_registro": "No se encontró registro de aprobación pendiente",
+
+    "erro_request_pending": "Se produjo un error al liberar al usuario.",
+    
+    "adm_acessos": "Gestión de Acceso",
+
+    "nenhum_usuario": "No se encontraron usuarios",
+
+    "sair": "Salir",
+    "erro_role": "Error de cambio de rol del usuario",
+    "disable": "Deshabilitar usuario",
+    "delete": "Borrar usuario",
+    "aprovar_usuario": "Aprobar usuario",
+
+    "nome_sem_ponto": "Nombre",
+    "e-mail_sem_ponto": "Correo electrónico",
+
+    "alterar_permissao": "Cambiar permiso"
+}
