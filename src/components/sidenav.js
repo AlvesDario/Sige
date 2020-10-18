@@ -13,31 +13,31 @@ const App = () => {
   const [role, setRole] = useState("");
   const [masterAdmin, setMasterAdmin] = useState(false);
 
-  function clearLocalStorage(){
+  function clearLocalStorage() {
     localStorage.removeItem("jwtToken");
     localStorage.removeItem("email");
   }
 
 
   function getRoleUser() {
-    Axios.get("https://45.79.139.78/v1/auth/user", {
+    Axios.get("http://54.232.146.18:80/v1/auth/user", {
       headers: {
-          'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+        'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
       }
     }).then(res => {
       if (res.status === 200) {
-          setRole(res.data.user.role);
-          if (res.data.user.role === 1){
-            setMasterAdmin(false);
-          } else {
-            setMasterAdmin(true);
-          }
+        setRole(res.data.user.role);
+        if (res.data.user.role === 1) {
+          setMasterAdmin(false);
+        } else {
+          setMasterAdmin(true);
+        }
       }
     }).catch(() => {
     })
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     context.selectLang();
     setEmail(localStorage.getItem('email'))
     getRoleUser()
@@ -47,7 +47,7 @@ const App = () => {
   return (<>
     <div className="sidebar">
       <div className="Userbox">
-        <img alt="avatar" src="https://objetivogru.com/wp-content/uploads/2016/11/fatec.jpg" className="userpic"/>
+        <img alt="avatar" src="https://objetivogru.com/wp-content/uploads/2016/11/fatec.jpg" className="userpic" />
         <p>
           <img alt="" src={require('../img/email_img.png')} width="20px" />   {email}
         </p>
@@ -61,19 +61,19 @@ const App = () => {
       <a href="/dashboard"><FormattedMessage id='dashboard' /></a>
       <a href="/configuracao"><FormattedMessage id='configuracao' /></a>
       {masterAdmin === false ? (
-      <span></span>
+        <span></span>
       ) : (
-        <a href="/pending_access">
-          <FormattedMessage id='usuarios_pendentes' />
-        </a>
-      )}
+          <a href="/pending_access">
+            <FormattedMessage id='usuarios_pendentes' />
+          </a>
+        )}
       {masterAdmin === false ? (
-      <span></span>
+        <span></span>
       ) : (
-        <a href="/access_management">
-          <FormattedMessage id='adm_acessos' />
-        </a>
-      )}
+          <a href="/access_management">
+            <FormattedMessage id='adm_acessos' />
+          </a>
+        )}
       <a href="/logout" onClick={() => clearLocalStorage()}><FormattedMessage id='sair' /></a>
     </div>
   </>);

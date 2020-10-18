@@ -5,7 +5,7 @@ import './login.css';
 
 const App = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState({pwd:"", confirmpwd:""});
+  const [password, setPassword] = useState({ pwd: "", confirmpwd: "" });
   const [code, setCode] = useState("");
   const [message, setMessage] = useState("");
   const [validCode, setValidCode] = useState(false);
@@ -14,7 +14,7 @@ const App = () => {
     e.preventDefault();
 
     if (!password) {
-      Axios.post("https://45.79.139.78/v1/auth/verify_access_recovery_code", {
+      Axios.post("http://54.232.146.18:80/v1/auth/verify_access_recovery_code", {
         access_recovery_data: {
           email: email,
           recovery_code: code
@@ -31,7 +31,7 @@ const App = () => {
       })
     }
     else {
-      Axios.post("https://45.79.139.78/v1/auth/reset_password", {
+      Axios.post("http://54.232.146.18:80/v1/auth/reset_password", {
         user_data: {
           email: email,
           password: password.pwd
@@ -49,8 +49,8 @@ const App = () => {
   }
 
   const validateForm = () => {
-    if(validCode){
-      return email.length > 0 && password.pwd===password.confirmpwd && password.pwd.length > 0;
+    if (validCode) {
+      return email.length > 0 && password.pwd === password.confirmpwd && password.pwd.length > 0;
     }
     return email.length > 0 && code.length > 0;
   }
@@ -69,14 +69,14 @@ const App = () => {
           <FormControl type='text' disabled={validCode} value={code} onChange={(e) => setCode(e.target.value)} />
         </FormGroup>
         {validCode && <>
-        <FormGroup >
-          <FormLabel>Senha</FormLabel>
-          <FormControl type='text' value={password.pwd} onChange={(e) => {const rest = password;setPassword({...rest , pwd: e.target.value})}} />
-        </FormGroup>
-        <FormGroup >
-          <FormLabel>Confirmar Senha</FormLabel>
-          <FormControl type='text' value={password.confirmpwd} onChange={(e) => {const rest = password;setPassword({...rest , confirmpwd: e.target.value})}} />
-        </FormGroup>
+          <FormGroup >
+            <FormLabel>Senha</FormLabel>
+            <FormControl type='text' value={password.pwd} onChange={(e) => { const rest = password; setPassword({ ...rest, pwd: e.target.value }) }} />
+          </FormGroup>
+          <FormGroup >
+            <FormLabel>Confirmar Senha</FormLabel>
+            <FormControl type='text' value={password.confirmpwd} onChange={(e) => { const rest = password; setPassword({ ...rest, confirmpwd: e.target.value }) }} />
+          </FormGroup>
         </>}
         <button disabled={!validateForm()} type="submit">Confirmar</button>
       </form>

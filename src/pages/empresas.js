@@ -21,28 +21,28 @@ const App = () => {
 
   useEffect(() => {
     if (NCON) {
-      Axios.get("https://45.79.139.78/v1/associated_companies/companies/" + NCON, {
+      Axios.get("http://54.232.146.18:80/v1/associated_companies/companies/" + NCON, {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
         }
       }).then(({ data }) => {
-        const {cnpj, company_name, opening_date, 
-          contact_email, zip_code, address, contact_phone, 
+        const { cnpj, company_name, opening_date,
+          contact_email, zip_code, address, contact_phone,
           associated_since, associated_until } = data.associated_company;
-          setCNPJ(cnpj||"");
-          setRazao(company_name||"");
-          setDataAbertura(opening_date||"");
-          setEmail(contact_email||"");
-          setCEP(zip_code||"");
-          setEndereco(address||"");
-          setTelefone(contact_phone||"");
-          setinicioConvenio(associated_since||"");
-          setFimConvenio(associated_until||"");
+        setCNPJ(cnpj || "");
+        setRazao(company_name || "");
+        setDataAbertura(opening_date || "");
+        setEmail(contact_email || "");
+        setCEP(zip_code || "");
+        setEndereco(address || "");
+        setTelefone(contact_phone || "");
+        setinicioConvenio(associated_since || "");
+        setFimConvenio(associated_until || "");
       });
     }
   }, [NCON]);
 
-  useEffect(()=>{
+  useEffect(() => {
     context.selectLang();
   }, [context])
 

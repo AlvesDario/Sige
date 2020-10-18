@@ -21,7 +21,7 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    Axios.post('https://45.79.139.78/v1/auth/reset_password', {
+    Axios.post('http://54.232.146.18:80/v1/auth/reset_password', {
       user_data: {
         email: email,
         password: password2
@@ -35,7 +35,7 @@ const App = () => {
     })
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     context.selectLang();
     setEmail(localStorage.getItem('email'))
   }, [context])
@@ -43,25 +43,25 @@ const App = () => {
   return (<>
     <SideNav />
     <div className="Login">
-        <form onSubmit={handleSubmit}>
-            <h1><FormattedMessage id="redefinir_senha" /></h1>
-            <FormGroup controlId="email" bsSize="large">
-                <FormLabel><FormattedMessage id="e-mail" /></FormLabel>
-                <FormControl type="email" value={email} disabled={true} />
-            </FormGroup>
-            <FormGroup >
-                <FormLabel><FormattedMessage id="nova_senha" /></FormLabel>
-                <FormControl type='password' value={password} onChange={(e) => { setPassword(e.target.value) }} />
-            </FormGroup>
-            <FormGroup >
-                <FormLabel><FormattedMessage id="digite_novamente" /></FormLabel>
-                <FormControl type='password' value={password2} onChange={(e) => { setPassword2(e.target.value) }} />
-            </FormGroup>
-            {message ? <p>{message}</p> : <></>}
-            <button disabled={!validateForm()} type="submit">
-                <FormattedMessage id="confirmar" />
-            </button>
-        </form>
+      <form onSubmit={handleSubmit}>
+        <h1><FormattedMessage id="redefinir_senha" /></h1>
+        <FormGroup controlId="email" bsSize="large">
+          <FormLabel><FormattedMessage id="e-mail" /></FormLabel>
+          <FormControl type="email" value={email} disabled={true} />
+        </FormGroup>
+        <FormGroup >
+          <FormLabel><FormattedMessage id="nova_senha" /></FormLabel>
+          <FormControl type='password' value={password} onChange={(e) => { setPassword(e.target.value) }} />
+        </FormGroup>
+        <FormGroup >
+          <FormLabel><FormattedMessage id="digite_novamente" /></FormLabel>
+          <FormControl type='password' value={password2} onChange={(e) => { setPassword2(e.target.value) }} />
+        </FormGroup>
+        {message ? <p>{message}</p> : <></>}
+        <button disabled={!validateForm()} type="submit">
+          <FormattedMessage id="confirmar" />
+        </button>
+      </form>
     </div>
   </>);
 };

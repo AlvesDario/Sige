@@ -12,39 +12,40 @@ const App = () => {
 
 
   useEffect(() => {
-    const funcoes = {estagiarios_empresas: () => {
-      Axios.get("https://45.79.139.78/v1/dashboard/interns_by_companies", {
-        headers: {
+    const funcoes = {
+      estagiarios_empresas: () => {
+        Axios.get("http://54.232.146.18:80/v1/dashboard/interns_by_companies", {
+          headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
-        }
-      }).then(({ data }) => {
-        data.interns_by_companies.map(register => {
-          return setEstagCompany(registerTable=> [...registerTable, [
-            register.company_name, register.interns_count]]
+          }
+        }).then(({ data }) => {
+          data.interns_by_companies.map(register => {
+            return setEstagCompany(registerTable => [...registerTable, [
+              register.company_name, register.interns_count]]
+            )
+          }
           )
-        }
-        )
-      })
-    }, estagiarios_efetivos: () => {
-      Axios.get("https://45.79.139.78/v1/dashboard/effective_internship_contracts_by_company", {
-        headers: {
+        })
+      }, estagiarios_efetivos: () => {
+        Axios.get("http://54.232.146.18:80/v1/dashboard/effective_internship_contracts_by_company", {
+          headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
-        }
-      }).then(({ data }) => {
-        data.effective_contracts_by_company.map(register => {
-          return setEstagEfetive(registerTable=> [...registerTable, [
-            register.company_name, register.contracts_count]]
+          }
+        }).then(({ data }) => {
+          data.effective_contracts_by_company.map(register => {
+            return setEstagEfetive(registerTable => [...registerTable, [
+              register.company_name, register.contracts_count]]
+            )
+          }
           )
         }
         )
       }
-      )
     }
-  }
-  const funcao = funcoes[chartType]
-  if(funcao){
-    funcao()
-  }
+    const funcao = funcoes[chartType]
+    if (funcao) {
+      funcao()
+    }
   }, [chartType]
   )
 

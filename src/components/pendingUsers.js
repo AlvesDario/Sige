@@ -15,9 +15,9 @@ const App = () => {
   }
 
   function deleteUser(id) {
-    Axios.delete("https://45.79.139.78/v1/management/users/" + id, {
+    Axios.delete("http://54.232.146.18:80/v1/management/users/" + id, {
       headers: {
-          Authorization: 'Bearer ' + localStorage.getItem("jwtToken")
+        Authorization: 'Bearer ' + localStorage.getItem("jwtToken")
       }
     }).then(res => {
       if (res.status === 200) {
@@ -29,65 +29,65 @@ const App = () => {
   }
 
   function aceptUser(id) {
-    Axios.put("https://45.79.139.78/v1/management/users/" + id + "/enable", {
-        key: "value"
+    Axios.put("http://54.232.146.18:80/v1/management/users/" + id + "/enable", {
+      key: "value"
     }, {
-        headers: {
-            Authorization: 'Bearer ' + localStorage.getItem("jwtToken")
-        }
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem("jwtToken")
+      }
     }).then(res => {
-        if (res.status === 200) {
-            refreshPage();
-        }
+      if (res.status === 200) {
+        refreshPage();
+      }
     }).catch(() => {
       alert("Ocorreu um erro na aprovação do usuário")
     })
   }
 
-  useEffect(()=>{
-    Axios.get("https://45.79.139.78/v1/management/users/pending", {
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
-        }
+  useEffect(() => {
+    Axios.get("http://54.232.146.18:80/v1/management/users/pending", {
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+      }
     }).then(res => {
-        if (res.status === 200) {
-            setPendingUsers(res.data.users);
-        }
+      if (res.status === 200) {
+        setPendingUsers(res.data.users);
+      }
     }).catch(({ response }) => {
-        console.log(response);
+      console.log(response);
     })
     context.selectLang();
   }, [context])
 
   return (<>
-  <div>
-    {error ? <p><FormattedMessage id={"erro_request_pending"} /></p> : <></>}
-    {pendingUsers.length === 0 ? (
-      <p><FormattedMessage id="nenhum_registro" /></p>
-    ) : (
-        <table className="searchTable">
-          <tbody>
-            <td><h4><FormattedMessage id="nome_sem_ponto" /></h4></td>
-            <td><h4><FormattedMessage id="e-mail_sem_ponto" /></h4></td>
-            <td><h4><FormattedMessage id="aprovar_usuario" /></h4></td>
-            <td><h4><FormattedMessage id="delete" /></h4></td>
-            {pendingUsers.map(user => <tr key={user.email}>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-              <td>
+    <div>
+      {error ? <p><FormattedMessage id={"erro_request_pending"} /></p> : <></>}
+      {pendingUsers.length === 0 ? (
+        <p><FormattedMessage id="nenhum_registro" /></p>
+      ) : (
+          <table className="searchTable">
+            <tbody>
+              <td><h4><FormattedMessage id="nome_sem_ponto" /></h4></td>
+              <td><h4><FormattedMessage id="e-mail_sem_ponto" /></h4></td>
+              <td><h4><FormattedMessage id="aprovar_usuario" /></h4></td>
+              <td><h4><FormattedMessage id="delete" /></h4></td>
+              {pendingUsers.map(user => <tr key={user.email}>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                <td>
                   <button>
                     <img src={require('../img/correct_img.png')} alt="" width="30px" onClick={() => aceptUser(user.id)} />
                   </button>
-              </td>
-              <td>
-                <button>
-                  <img src={require('../img/delete_img.png')} alt="" width="30px" onClick={() => deleteUser(user.id)} />
-                </button>
-              </td>
-            </tr>)}
-          </tbody>
-        </table>
-      )}
+                </td>
+                <td>
+                  <button>
+                    <img src={require('../img/delete_img.png')} alt="" width="30px" onClick={() => deleteUser(user.id)} />
+                  </button>
+                </td>
+              </tr>)}
+            </tbody>
+          </table>
+        )}
     </div>
   </>);
 };

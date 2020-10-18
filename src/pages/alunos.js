@@ -23,25 +23,25 @@ const App = () => {
 
   useEffect(() => {
     if (RA) {
-      Axios.get("https://45.79.139.78/v1/intern_records/records/record?intern_ra=" + RA, {
+      Axios.get("http://54.232.146.18:80/v1/intern_records/records/record?intern_ra=" + RA, {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
         }
       }).then(({ data }) => {
-        const { name, birth_date, mother_name, spouse_name, 
-          course_name, email, residential_address, residential_city, 
+        const { name, birth_date, mother_name, spouse_name,
+          course_name, email, residential_address, residential_city,
           residential_neighbourhood, residential_cep, residential_phone_number, phone_number } = data.intern_record;
-        setNome(name||"");
-        setNascimento(birth_date||"");
-        setNomeMae(mother_name||"");
-        setEstadoCivil(spouse_name?"casado":"solteiro");
-        setCurso(course_name||"");
+        setNome(name || "");
+        setNascimento(birth_date || "");
+        setNomeMae(mother_name || "");
+        setEstadoCivil(spouse_name ? "casado" : "solteiro");
+        setCurso(course_name || "");
         setTurno("Noturno")
-        setEmail(email||"");
-        setEndereco((residential_address+", "+ residential_neighbourhood+", "+residential_city)||"");
-        setCEP(residential_cep||"");
-        setTelefone(residential_phone_number||"");
-        setCelular(phone_number||"");
+        setEmail(email || "");
+        setEndereco((residential_address + ", " + residential_neighbourhood + ", " + residential_city) || "");
+        setCEP(residential_cep || "");
+        setTelefone(residential_phone_number || "");
+        setCelular(phone_number || "");
       });
     }
   }, [RA]);

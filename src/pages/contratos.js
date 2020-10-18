@@ -20,7 +20,7 @@ const App = () => {
 
   useEffect(() => {
     if (NCON) {
-      Axios.get("https://45.79.139.78/v1/internship_contracts/contracts/" + NCON, {
+      Axios.get("http://54.232.146.18:80/v1/internship_contracts/contracts/" + NCON, {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
         }
@@ -44,7 +44,7 @@ const App = () => {
 
   useEffect(() => {
     if (RA) {
-      Axios.get("https://45.79.139.78/v1/intern_records/records/record?intern_ra=" + RA, {
+      Axios.get("http://54.232.146.18:80/v1/intern_records/records/record?intern_ra=" + RA, {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
         }
@@ -57,7 +57,7 @@ const App = () => {
 
   useEffect(() => {
     if (empresaID) {
-      Axios.get("v1/associated_companies/companies/" + empresaID, {
+      Axios.get("http://54.232.146.18:80/v1/associated_companies/companies/" + empresaID, {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
         }

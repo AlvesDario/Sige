@@ -11,7 +11,7 @@ const App = (props) => {
   const [searchCurso, setSearchCurso] = useState("");
 
   useEffect(() => {
-    Axios.get("https://45.79.139.78/v1/intern_records/all", {
+    Axios.get("http://54.232.146.18:80/v1/intern_records/all", {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
       }
@@ -33,7 +33,7 @@ const App = (props) => {
 
   const handleSearchClick = () => {
     if (!searchName && !searchRA && !searchCurso) {
-      Axios.get("https://45.79.139.78/v1/intern_records/all", {
+      Axios.get("http://54.232.146.18:80/v1/intern_records/all", {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
         }

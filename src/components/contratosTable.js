@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import NovoContrato from './newContratc';
 import './searchTable.css';
 import Axios from 'axios';
@@ -14,7 +14,7 @@ const App = (props) => {
 
   useEffect(() => {
     //v1/internship_contracts/contracts/
-    Axios.get("https://45.79.139.78/v1/internship_contracts/contracts", {
+    Axios.get("http://54.232.146.18:80/v1/internship_contracts/contracts", {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
       }
@@ -37,7 +37,7 @@ const App = (props) => {
 
   const handleSearchClick = () => {
     if (!searchAluno && !searchContrato && !searchEmpresa) {
-      Axios.get("https://45.79.139.78/v1/internship_contracts/contracts", {
+      Axios.get("http://54.232.146.18:80/v1/internship_contracts/contracts", {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
         }
@@ -62,7 +62,7 @@ const App = (props) => {
   }
 
   const handleAdded = () => {
-    Axios.get("https://45.79.139.78/v1/internship_contracts/contracts", {
+    Axios.get("http://54.232.146.18:80/v1/internship_contracts/contracts", {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
       }

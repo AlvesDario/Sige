@@ -22,12 +22,14 @@ export default function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    Axios.post('https://45.79.139.78/v1/auth/authenticate', {
+    Axios.post('http://54.232.146.18:80/v1/auth/authenticate', {
       credentials: {
         email: email,
         password: password
       }
-    }).then(res => {
+    },
+      { headers: { "Access-Control-Allow-Origin": "*", } }
+    ).then(res => {
       if (res.status === 200) {
         localStorage.setItem('jwtToken', res.data.token);
         console.log(res.data.token)
@@ -40,7 +42,7 @@ export default function Login() {
   }
 
   return (<>
-    <select value={localStorage.getItem('locale')||'pt-BR'} onChange={handleLanguageChange}>
+    <select value={localStorage.getItem('locale') || 'pt-BR'} onChange={handleLanguageChange}>
       <option value="en-US">Inglês</option>
       <option value="pt-BR">Português</option>
       <option value="es-CL">Espanhol</option>
@@ -79,7 +81,7 @@ export default function Login() {
         </button>
       </form>
     </div>
-    <a href='/cadastro'><FormattedMessage id="cadastrar" /></a><br/>
+    <a href='/cadastro'><FormattedMessage id="cadastrar" /></a><br />
     <a href='/remember'><FormattedMessage id="esqueci" /></a>
   </>);
 }

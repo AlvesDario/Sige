@@ -16,9 +16,9 @@ const App = () => {
   }
 
   function deleteUser(id) {
-    Axios.delete("https://45.79.139.78/v1/management/users/" + id, {
+    Axios.delete("http://54.232.146.18:80/v1/management/users/" + id, {
       headers: {
-          Authorization: 'Bearer ' + localStorage.getItem("jwtToken")
+        Authorization: 'Bearer ' + localStorage.getItem("jwtToken")
       }
     }).then(res => {
       if (res.status === 200) {
@@ -30,7 +30,7 @@ const App = () => {
   }
 
   function disableUser(id) {
-    Axios.put("https://45.79.139.78/v1/management/users/" + id + "/disable", {
+    Axios.put("http://54.232.146.18:80/v1/management/users/" + id + "/disable", {
       key: "value"
     }, {
       headers: {
@@ -47,74 +47,74 @@ const App = () => {
   }
 
   function modifyRole(id, value) {
-    Axios.put("https://45.79.139.78/v1/management/users/" + id + "/role", {
-        "user_new_data": {
-            "role": value
-        }
+    Axios.put("http://54.232.146.18:80/v1/management/users/" + id + "/role", {
+      "user_new_data": {
+        "role": value
+      }
     }, {
-        headers: {
-          Authorization: 'Bearer ' + localStorage.getItem("jwtToken")
-        }
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem("jwtToken")
+      }
     }).then(res => {
-        if (res.status === 200) {
-            alert("Role do usuário modificado com sucesso!");
-            refreshPage();
-        }
+      if (res.status === 200) {
+        alert("Role do usuário modificado com sucesso!");
+        refreshPage();
+      }
     }).catch(() => {
       alert("Error in role modifie");
     })
   }
 
-  useEffect(()=>{
-    Axios.get("https://45.79.139.78/v1/management/users/active", {
-        headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
-        }
+  useEffect(() => {
+    Axios.get("http://54.232.146.18:80/v1/management/users/active", {
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
+      }
     }).then(res => {
-        if (res.status === 200) {
-            setUsers(res.data.users);
-        }
+      if (res.status === 200) {
+        setUsers(res.data.users);
+      }
     }).catch(() => {
     })
     context.selectLang();
   }, [context])
 
   return (<>
-  <div>
-    {error ? <p><FormattedMessage id={"erro_role"} /></p> : <></>}
-    {users.length === 0 ? (
-      <p><FormattedMessage id="nenhum_usuario" /></p>
-    ) : (
-        <table className="searchTable">
-          <td><h4><FormattedMessage id="nome_sem_ponto" /></h4></td>
-          <td><h4><FormattedMessage id="e-mail_sem_ponto" /></h4></td>
-          <td><h4><FormattedMessage id="alterar_permissao" /></h4></td>
-          <td><h4><FormattedMessage id="disable" /></h4></td>
-          <td><h4><FormattedMessage id="delete" /></h4></td>
-          <tbody>
-            {users.map(user => <tr key={user.email}>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-              <td>
-              <select id="select-role" onChange={e => {modifyRole(user.id, e.target.value)}}>
-                <option>{Roles[user.role]}</option>  
-                <option value="1">{Roles[1]}</option>
-                <option value="2">{Roles[2]}</option>
-                <option value="3">{Roles[3]}</option>
-              </select>
-              </td>
-              <td>
-                <button onClick={() => disableUser(user.id)}><FormattedMessage id="disable" /></button>
-              </td>
-              <td>
-                <button>
-                  <img src={require('../img/delete_img.png')} alt="" width="30px" onClick={() => deleteUser(user.id)} />
-                </button>
-              </td>
-            </tr>)}
-          </tbody>
-        </table>
-      )}
+    <div>
+      {error ? <p><FormattedMessage id={"erro_role"} /></p> : <></>}
+      {users.length === 0 ? (
+        <p><FormattedMessage id="nenhum_usuario" /></p>
+      ) : (
+          <table className="searchTable">
+            <td><h4><FormattedMessage id="nome_sem_ponto" /></h4></td>
+            <td><h4><FormattedMessage id="e-mail_sem_ponto" /></h4></td>
+            <td><h4><FormattedMessage id="alterar_permissao" /></h4></td>
+            <td><h4><FormattedMessage id="disable" /></h4></td>
+            <td><h4><FormattedMessage id="delete" /></h4></td>
+            <tbody>
+              {users.map(user => <tr key={user.email}>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                <td>
+                  <select id="select-role" onChange={e => { modifyRole(user.id, e.target.value) }}>
+                    <option>{Roles[user.role]}</option>
+                    <option value="1">{Roles[1]}</option>
+                    <option value="2">{Roles[2]}</option>
+                    <option value="3">{Roles[3]}</option>
+                  </select>
+                </td>
+                <td>
+                  <button onClick={() => disableUser(user.id)}><FormattedMessage id="disable" /></button>
+                </td>
+                <td>
+                  <button>
+                    <img src={require('../img/delete_img.png')} alt="" width="30px" onClick={() => deleteUser(user.id)} />
+                  </button>
+                </td>
+              </tr>)}
+            </tbody>
+          </table>
+        )}
     </div>
   </>);
 };

@@ -12,7 +12,7 @@ const App = () => {
   const [password, setPassword] = useState({ pwd: "", confirmpwd: "" });
   const [message, setMessage] = useState("");
 
-  useEffect(()=>{
+  useEffect(() => {
     context.selectLang();
   }, [context])
 
@@ -23,7 +23,7 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    Axios.post('https://45.79.139.78/v1/auth/sign_up', {
+    Axios.post('http://54.232.146.18:80/v1/auth/sign_up', {
       new_user_data: {
         name: nome,
         email: email,
