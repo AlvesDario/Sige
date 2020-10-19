@@ -27,8 +27,7 @@ export default function Login() {
         email: email,
         password: password
       }
-    },
-      { headers: { "Access-Control-Allow-Origin": "*", } }
+    }
     ).then(res => {
       if (res.status === 200) {
         localStorage.setItem('jwtToken', res.data.token);
@@ -37,7 +36,7 @@ export default function Login() {
         window.location.href = "/home";
       }
     }).catch(({ response }) => {
-      setError(response.status);
+      setError(response);
     })
   }
 
