@@ -21,7 +21,7 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    Axios.post('https://api.fatecsige.com.br:4430/v1/auth/reset_password', {
+    Axios.post('https://api.fatecsige.com.br:443/v1/auth/reset_password', {
       user_data: {
         email: email,
         password: password2
