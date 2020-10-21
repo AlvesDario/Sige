@@ -36,7 +36,7 @@ export default function Login() {
         window.location.href = "/home";
       }
     }).catch(({ response }) => {
-      setError(response);
+      setError(response.data.message);
     })
   }
 
