@@ -14,7 +14,7 @@ const App = () => {
   useEffect(() => {
     const funcoes = {
       estagiarios_empresas: () => {
-        Axios.get("http://54.232.146.18:80/v1/dashboard/interns_by_companies", {
+        Axios.get("https://api.fatecsige.com.br:443/v1/dashboard/interns_by_companies", {
           headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
           }
@@ -27,7 +27,7 @@ const App = () => {
           )
         })
       }, estagiarios_efetivos: () => {
-        Axios.get("http://54.232.146.18:80/v1/dashboard/effective_internship_contracts_by_company", {
+        Axios.get("https://api.fatecsige.com.br:443/v1/dashboard/effective_internship_contracts_by_company", {
           headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
           }

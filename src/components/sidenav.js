@@ -20,7 +20,7 @@ const App = () => {
 
 
   function getRoleUser() {
-    Axios.get("http://54.232.146.18:80/v1/auth/user", {
+    Axios.get("https://api.fatecsige.com.br:443/v1/auth/user", {
       headers: {
         'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
       }

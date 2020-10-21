@@ -23,7 +23,7 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    Axios.post('http://54.232.146.18:80/v1/auth/sign_up', {
+    Axios.post('https://api.fatecsige.com.br:443/v1/auth/sign_up', {
       new_user_data: {
         name: nome,
         email: email,
@@ -31,10 +31,10 @@ const App = () => {
       }
     }).then(res => {
       if (res.status === 200) {
-        setMessage(res.data.message)
+        setMessage(res.data.msg)
       }
     }).catch(({ response }) => {
-      setMessage(response.data.message);
+      setMessage(response.data.msg);
     })
   }
 

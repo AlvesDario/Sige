@@ -17,7 +17,7 @@ const App = (props) => {
 
   const checkRA = () => {
     if (RA) {
-      Axios.get("http://54.232.146.18:80/v1/intern_records/records/record?intern_ra=" + RA, {
+      Axios.get("https://api.fatecsige.com.br:443/v1/intern_records/records/record?intern_ra=" + RA, {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
         }
@@ -30,7 +30,7 @@ const App = (props) => {
 
   const checkCNPJ = () => {
     if (empresaCNPJ) {
-      Axios.get("http://54.232.146.18:80/v1/associated_companies/companies", {
+      Axios.get("https://api.fatecsige.com.br:443/v1/associated_companies/companies", {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
         }
@@ -49,7 +49,7 @@ const App = (props) => {
 
   const handleAdd = () => {
     // /v1/internship_contracts/contracts
-    Axios.post("http://54.232.146.18:80/v1/internship_contracts/contracts", {
+    Axios.post("https://api.fatecsige.com.br:443/v1/internship_contracts/contracts", {
       new_contract_data: {
         intern_ra: RA,
         company_id: empresaID
@@ -59,7 +59,7 @@ const App = (props) => {
         Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
       }
     }).then(({ data }) => {
-      Axios.post("http://54.232.146.18:80/v1/internship_contracts/contracts/" + data.internship_contract.id, {
+      Axios.post("https://api.fatecsige.com.br:443/v1/internship_contracts/contracts/" + data.internship_contract.id, {
         new_subcontract_data: {
           start_date: new Date(startDate).toISOString(),
           ending_date: new Date(endingDate).toISOString()

@@ -9,7 +9,7 @@ const App = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Axios.post("http://54.232.146.18:80/v1/auth/begin_access_recovery", {
+    Axios.post("https://api.fatecsige.com.br:443/v1/auth/begin_access_recovery", {
       access_recovery_data: {
         email: email
       }

@@ -23,7 +23,7 @@ const App = () => {
 
   useEffect(() => {
     if (RA) {
-      Axios.get("http://54.232.146.18:80/v1/intern_records/records/record?intern_ra=" + RA, {
+      Axios.get("https://api.fatecsige.com.br:443/v1/intern_records/records/record?intern_ra=" + RA, {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
         }

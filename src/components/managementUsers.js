@@ -16,7 +16,7 @@ const App = () => {
   }
 
   function deleteUser(id) {
-    Axios.delete("http://54.232.146.18:80/v1/management/users/" + id, {
+    Axios.delete("https://api.fatecsige.com.br:443/v1/management/users/" + id, {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem("jwtToken")
       }
@@ -24,13 +24,13 @@ const App = () => {
       if (res.status === 200) {
         refreshPage();
       }
-    }).catch(() => {
+    }).catch((res) => {
       alert("Error in user delete");
     })
   }
 
   function disableUser(id) {
-    Axios.put("http://54.232.146.18:80/v1/management/users/" + id + "/disable", {
+    Axios.put("https://api.fatecsige.com.br:443/v1/management/users/" + id + "/disable", {
       key: "value"
     }, {
       headers: {
@@ -47,7 +47,7 @@ const App = () => {
   }
 
   function modifyRole(id, value) {
-    Axios.put("http://54.232.146.18:80/v1/management/users/" + id + "/role", {
+    Axios.put("https://api.fatecsige.com.br:443/v1/management/users/" + id + "/role", {
       "user_new_data": {
         "role": value
       }
@@ -66,7 +66,7 @@ const App = () => {
   }
 
   useEffect(() => {
-    Axios.get("http://54.232.146.18:80/v1/management/users/active", {
+    Axios.get("https://api.fatecsige.com.br:443/v1/management/users/active", {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
       }

@@ -22,7 +22,7 @@ export default function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    Axios.post('http://54.232.146.18:80/v1/auth/authenticate', {
+    Axios.post('https://api.fatecsige.com.br:443/v1/auth/authenticate', {
       credentials: {
         email: email,
         password: password

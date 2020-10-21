@@ -21,7 +21,7 @@ const App = () => {
 
   useEffect(() => {
     if (NCON) {
-      Axios.get("http://54.232.146.18:80/v1/associated_companies/companies/" + NCON, {
+      Axios.get("https://api.fatecsige.com.br:443/v1/associated_companies/companies/" + NCON, {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
         }

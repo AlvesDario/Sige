@@ -19,7 +19,7 @@ import AccessManagement from './pages/accessManagement'
 
 const checkAuth = () => {
   const token = localStorage.getItem('jwtToken');
-  if (!token ){
+  if (!token) {
     return false;
   }
   try {
@@ -54,9 +54,9 @@ const App = () => {
         <AuthRoute path="/import" component={DataImport} />
         <Route exact path="/aluno/" component={Aluno} />
         <Route path="/aluno/:RA" component={Aluno} />
-        <Route exact path="/empresas/" component={Empresa}/>
+        <Route exact path="/empresas/" component={Empresa} />
         <Route path="/empresas/:NCON" component={Empresa} />
-        <Route exact path="/contratos/" component={Contrato}/>
+        <Route exact path="/contratos/" component={Contrato} />
         <Route path="/contratos/:NCON" component={Contrato} />
         <Route path="/dashboard" component={DashboardPage} />
         <Route exact path="/configuracao/" component={Configuracao} />

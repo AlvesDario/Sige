@@ -15,7 +15,7 @@ const App = () => {
   }
 
   function deleteUser(id) {
-    Axios.delete("http://54.232.146.18:80/v1/management/users/" + id, {
+    Axios.delete("https://api.fatecsige.com.br:443/v1/management/users/" + id, {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem("jwtToken")
       }
@@ -29,7 +29,7 @@ const App = () => {
   }
 
   function aceptUser(id) {
-    Axios.put("http://54.232.146.18:80/v1/management/users/" + id + "/enable", {
+    Axios.put("https://api.fatecsige.com.br:443/v1/management/users/" + id + "/enable", {
       key: "value"
     }, {
       headers: {
@@ -45,7 +45,7 @@ const App = () => {
   }
 
   useEffect(() => {
-    Axios.get("http://54.232.146.18:80/v1/management/users/pending", {
+    Axios.get("https://api.fatecsige.com.br:443/v1/management/users/pending", {
       headers: {
         'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
       }

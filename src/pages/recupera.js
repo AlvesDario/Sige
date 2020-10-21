@@ -14,7 +14,7 @@ const App = () => {
     e.preventDefault();
 
     if (!password) {
-      Axios.post("http://54.232.146.18:80/v1/auth/verify_access_recovery_code", {
+      Axios.post("https://api.fatecsige.com.br:443/v1/auth/verify_access_recovery_code", {
         access_recovery_data: {
           email: email,
           recovery_code: code
@@ -31,7 +31,7 @@ const App = () => {
       })
     }
     else {
-      Axios.post("http://54.232.146.18:80/v1/auth/reset_password", {
+      Axios.post("https://api.fatecsige.com.br:443/v1/auth/reset_password", {
         user_data: {
           email: email,
           password: password.pwd

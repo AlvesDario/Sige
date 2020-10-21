@@ -14,7 +14,7 @@ const App = (props) => {
 
   useEffect(() => {
     //v1/associated_companies/companies/
-    Axios.get("http://54.232.146.18:80/v1/associated_companies/companies", {
+    Axios.get("https://api.fatecsige.com.br:443/v1/associated_companies/companies", {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
       }
@@ -36,7 +36,7 @@ const App = (props) => {
 
   const handleSearchClick = () => {
     if (!searchName && !searchCNPJ && !searchConvenio) {
-      Axios.get("http://54.232.146.18:80/v1/associated_companies/companies", {
+      Axios.get("https://api.fatecsige.com.br:443/v1/associated_companies/companies", {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
         }
@@ -61,7 +61,7 @@ const App = (props) => {
   }
 
   const handleAdded = () => {
-    Axios.get("http://54.232.146.18:80/v1/associated_companies/companies", {
+    Axios.get("https://api.fatecsige.com.br:443/v1/associated_companies/companies", {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
       }

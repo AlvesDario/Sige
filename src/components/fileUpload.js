@@ -24,7 +24,7 @@ const App = () => {
     );
     // Request made to the backend api 
     // Send formData object 
-    axios.post("http://54.232.146.18:80/v1/import_data/upload/" + cursoID, formData, {
+    axios.post("https://api.fatecsige.com.br:443/v1/import_data/upload/" + cursoID, formData, {
       headers: {
         "Content-Type": 'multipart/form-data',
         Authorization: 'Bearer ' + localStorage.getItem('jwtToken')

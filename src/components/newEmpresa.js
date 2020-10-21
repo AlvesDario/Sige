@@ -23,7 +23,7 @@ const App = (props) => {
   };
 
   const handleAdd = () => {
-    Axios.post("http://54.232.146.18:80/v1/associated_companies/companies", {
+    Axios.post("https://api.fatecsige.com.br:443/v1/associated_companies/companies", {
       new_company_data: {
         address: endereco,
         associated_since: new Date(inicioConvenio).toISOString(),
