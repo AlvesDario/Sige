@@ -57,7 +57,7 @@ const App = () => {
 
   return (<>
     <h1>Recuperar Senha</h1>
-    <p>Ensira o email utilizado no cadastro</p>
+    <p>Insira o email utilizado no cadastro</p>
     <div className="Login">
       <form onSubmit={handleSubmit}>
         <FormGroup >
