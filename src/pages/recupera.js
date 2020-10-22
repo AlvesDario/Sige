@@ -17,7 +17,7 @@ const App = () => {
       Axios.post("https://api.fatecsige.com.br:443/v1/auth/verify_access_recovery_code", {
         access_recovery_data: {
           email: email,
-          recovery_code: code
+          recovery_code: parseInt(code)
         }
       }).then((res) => {
         if (res.response.status === 200) {
