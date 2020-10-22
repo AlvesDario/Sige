@@ -13,7 +13,7 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!password) {
+    if (!password.pwd) {
       Axios.post("https://api.fatecsige.com.br:443/v1/auth/verify_access_recovery_code", {
         access_recovery_data: {
           email: email,
