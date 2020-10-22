@@ -26,6 +26,10 @@ const App = () => {
         email: email,
         password: password2
       }
+    }, {
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
+      }
     }).then(res => {
       if (res.status === 200) {
         setMessage(res.data.message)

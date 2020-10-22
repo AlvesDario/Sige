@@ -19,8 +19,9 @@ const App = () => {
           email: email,
           recovery_code: code
         }
-      }).then(({ response }) => {
-        if (response.status === 200) {
+      }).then((res) => {
+        if (res.response.status === 200) {
+          localStorage.setItem('jwtToken', res.data.token);
           setMessage("Codigo valido, insira a senha!");
           setValidCode(true)
         }
@@ -36,15 +37,20 @@ const App = () => {
           email: email,
           password: password.pwd
         }
-      }).then(({ response }) => {
-        if (response.status === 200) {
-          setMessage("email de recuperação enviado com sucesso!");
-        }
-      }).catch(err => {
-        try {
-          setMessage(err.response.data.message);
-        } catch (e) { }
-      })
+      },
+        {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
+          }
+        }).then(({ response }) => {
+          if (response.status === 200) {
+            setMessage("email de recuperação enviado com sucesso!");
+          }
+        }).catch(err => {
+          try {
+            setMessage(err.response.data.message);
+          } catch (e) { }
+        })
     }
   }
 
