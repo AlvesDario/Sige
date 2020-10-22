@@ -58,7 +58,11 @@ const App = () => {
           <FormControl type='password' value={password.confirmpwd} onChange={(e) => { const rest = password; setPassword({ ...rest, confirmpwd: e.target.value }) }} />
         </FormGroup>
         {message ? <p>{message}</p> : <></>}
-        <button disabled={!validateForm()} type="submit"><FormattedMessage id="confirmar" /></button>
+        <div style={{ display: "block" }}>
+          <button disabled={!validateForm()} type="submit"><FormattedMessage id="confirmar" /></button>
+          <button onClick={() => document.location.href = '/'}>Login</button>
+        </div>
+
       </form>
     </div>
   </>)
