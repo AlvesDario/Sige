@@ -100,7 +100,6 @@ const App = () => {
                     <option>{Roles[user.role]}</option>
                     <option value="1">{Roles[1]}</option>
                     <option value="2">{Roles[2]}</option>
-                    <option value="3">{Roles[3]}</option>
                   </select>
                 </td>
                 <td>

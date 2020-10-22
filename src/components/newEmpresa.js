@@ -54,7 +54,7 @@ const App = (props) => {
         <h1>Adicionar novo convênio</h1>
         <Form.Group>
           <Form.Label>CNPJ:</Form.Label>
-          <Form.Control value={CNPJ} onChange={e => setCNPJ(e.target.value)} onBlur={checkCNPJ} type="text" placeholder="CNPJ" />
+          <Form.Control value={CNPJ} onChange={e => { setCNPJ(e.target.value); checkCNPJ() }} type="text" placeholder="CNPJ" />
         </Form.Group>
 
         <Form.Group hidden={!show}>
@@ -63,7 +63,7 @@ const App = (props) => {
         </Form.Group>
 
         <Form.Group hidden={!show}>
-          <Form.Label>Data de abertura:</Form.Label>
+          <Form.Label>Data De Abertura:</Form.Label>
           <Form.Control value={dataAbertura} type="date" placeholder="Data de abertura" onChange={e => setDataAbertura(e.target.value)} />
         </Form.Group>
 
@@ -73,7 +73,7 @@ const App = (props) => {
         </Form.Group>
 
         <Form.Group hidden={!show}>
-          <Form.Label>Endereco:</Form.Label>
+          <Form.Label>Endereço:</Form.Label>
           <Form.Control value={endereco} type="text" placeholder="Endereco" onChange={e => setEndereco(e.target.value)} />
         </Form.Group>
 
@@ -88,15 +88,15 @@ const App = (props) => {
         </Form.Group>
 
         <Form.Group hidden={!show}>
-          <Form.Label>Email:</Form.Label>
+          <Form.Label>E-mail:</Form.Label>
           <Form.Control value={email} type="email" placeholder="Email de contato" onChange={(e) => { setEmail(e.target.value) }} />
         </Form.Group>
         <Form.Group hidden={!show}>
-          <Form.Label>Inicio do Convenio:</Form.Label>
+          <Form.Label>Início do Convenio:</Form.Label>
           <Form.Control value={inicioConvenio} type="date" placeholder="Inicio do Convenio" onChange={(e) => { setinicioConvenio(e.target.value) }} />
         </Form.Group>
         <Form.Group hidden={!show}>
-          <Form.Label>Termino do convenio:</Form.Label>
+          <Form.Label>Término Do Convênio:</Form.Label>
           <Form.Control value={fimConvenio} type="date" placeholder="Termino do convenio" onChange={(e) => { setFimConvenio(e.target.value) }} />
         </Form.Group>
         <Form.Group hidden={!show}>
