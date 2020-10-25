@@ -86,6 +86,7 @@ const App = () => {
                 </td>
               </tr>)}
             </tbody>
+            <button onClick={() => document.location.href = '/management'}>Voltar</button>
           </table>
         )}
     </div>

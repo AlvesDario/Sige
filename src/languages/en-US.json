@@ -64,6 +64,9 @@
     "erro_request_pending": "An error occurred while releasing the user",
 
     "adm_acessos": "Access management",
+
+    "page_admin": "Management",
+    
     "nenhum_usuario": "No users found",
 
     "sair": "Logout",

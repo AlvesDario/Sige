@@ -68,7 +68,9 @@
 
     "erro_request_pending": "Ocorreu um erro na liberação do usuário",
 
-    "adm_acessos": "Administração de acessos",
+    "adm_acessos": "Administração De Acessos",
+
+    "page_admin": "Administração",
 
     "nenhum_usuario": "Nenhum usuário encontrado",
 

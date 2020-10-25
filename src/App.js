@@ -16,6 +16,7 @@ import Configuracao from './pages/configuracao';
 import ResetPassword from './pages/reset_password';
 import PendingUsers from './pages/pendingUsers';
 import AccessManagement from './pages/accessManagement'
+import AccessManagementTeste from './pages/accessManagement1'
 
 const checkAuth = () => {
   const token = localStorage.getItem('jwtToken');
@@ -63,6 +64,7 @@ const App = () => {
         <Route path="/configuracao/reset_password" component={ResetPassword} />
         <Route path="/pending_access" component={PendingUsers} />
         <Route path="/access_management" component={AccessManagement} />
+        <Route path="/management" component={AccessManagementTeste} />
         <Route path="/logout" component={LoginPage} />
       </Switch>
     </div>

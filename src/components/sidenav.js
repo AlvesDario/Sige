@@ -60,18 +60,25 @@ const App = () => {
       <a href="/contratos"><FormattedMessage id='contratos' /></a>
       <a href="/dashboard"><FormattedMessage id='dashboard' /></a>
       <a href="/configuracao"><FormattedMessage id='configuracao' /></a>
+      {/* {masterAdmin === false ? ( */}
+      {/* <span></span> */}
+      {/* ) : ( */}
+      {/* <a href="/pending_access"> */}
+      {/* <FormattedMessage id='usuarios_pendentes' /> */}
+      {/* </a> */}
+      {/* )} */}
+      {/* {masterAdmin === false ? ( */}
+      {/* <span></span> */}
+      {/* ) : ( */}
+      {/* <a href="/access_management"> */}
+      {/* <FormattedMessage id='adm_acessos' /> */}
+      {/* </a> */}
+      {/* )} */}
       {masterAdmin === false ? (
         <span></span>
       ) : (
-          <a href="/pending_access">
-            <FormattedMessage id='usuarios_pendentes' />
-          </a>
-        )}
-      {masterAdmin === false ? (
-        <span></span>
-      ) : (
-          <a href="/access_management">
-            <FormattedMessage id='adm_acessos' />
+          <a href="/management">
+            <FormattedMessage id='page_admin' />
           </a>
         )}
       <a href="/logout" onClick={() => clearLocalStorage()}><FormattedMessage id='sair' /></a>
