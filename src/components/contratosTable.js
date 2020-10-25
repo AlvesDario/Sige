@@ -68,7 +68,8 @@ const App = (props) => {
       }
     })
       .then(({ data }) => {// name, ra, course_name
-        console.log(data.internship_contracts)
+        console.log(data.internship_contracts);
+        setContratosTable([]);
         data.internship_contracts.map(contrato => {
           return setContratosTable(contratostable => [...contratostable, {
             NCON: contrato.id,

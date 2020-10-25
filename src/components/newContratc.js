@@ -69,7 +69,7 @@ const App = (props) => {
           Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
         }
       })
-    })
+    }).then(() => window.location.reload(false))
     props.onAdd()
   }
 
