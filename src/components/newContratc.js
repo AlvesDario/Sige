@@ -105,7 +105,7 @@ const App = (props) => {
         </Form.Group>
 
         <Form.Group hidden={!alunoName && !empresaCNPJ}>
-          <Form.Label>Data de abertura:</Form.Label>
+          <Form.Label>Data de término:</Form.Label>
           <Form.Control value={endingDate} type="date" placeholder="Data de termino do contrato" onChange={e => setEndingDate(e.target.value)} />
         </Form.Group>
 
@@ -114,6 +114,7 @@ const App = (props) => {
             Adicionar
             </Button>
         </Form.Group>
+
         {/* <Form.Group>
           <Form.Label>CNPJ:</Form.Label>
           <Form.Control value={CNPJ} onChange={e => setCNPJ(e.target.value)} onBlur={checkCNPJ} type="text" placeholder="CNPJ" />
@@ -166,5 +167,6 @@ const App = (props) => {
     </>
   );
 }
+
 
 export default App;

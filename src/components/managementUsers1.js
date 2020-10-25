@@ -1,17 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React from 'react';
 import './searchTable.css';
-import { Context } from './Wrapper';
 
 
 const App = () => {
-  const context = useContext(Context);
-  const [users, setUsers] = useState([]);
-
-  const [error] = useState(0);
-
-  function refreshPage() {
-    window.location.reload(false);
-  }
 
   return (<>
     <div>
