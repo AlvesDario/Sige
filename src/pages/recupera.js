@@ -20,7 +20,7 @@ const App = () => {
           recovery_code: parseInt(code)
         }
       }).then((res) => {
-        if (res.response.status === 200) {
+        if (res.status === 200) {
           localStorage.setItem('jwtToken', res.data.token);
           setMessage("Codigo valido, insira a senha!");
           setValidCode(true)
@@ -42,9 +42,9 @@ const App = () => {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('jwtToken')
           }
-        }).then(({ response }) => {
-          if (response.status === 200) {
-            setMessage("email de recuperação enviado com sucesso!");
+        }).then((res) => {
+          if (res.status === 200) {
+            setMessage("Senha alterada com sucesso. Volte para página de login para o acesso.");
           }
         }).catch(err => {
           try {
@@ -77,15 +77,15 @@ const App = () => {
         {validCode && <>
           <FormGroup >
             <FormLabel>Senha</FormLabel>
-            <FormControl type='text' value={password.pwd} onChange={(e) => { const rest = password; setPassword({ ...rest, pwd: e.target.value }) }} />
+            <FormControl type='password' value={password.pwd} onChange={(e) => { const rest = password; setPassword({ ...rest, pwd: e.target.value }) }} />
           </FormGroup>
           <FormGroup >
             <FormLabel>Confirmar Senha</FormLabel>
-            <FormControl type='text' value={password.confirmpwd} onChange={(e) => { const rest = password; setPassword({ ...rest, confirmpwd: e.target.value }) }} />
+            <FormControl type='password' value={password.confirmpwd} onChange={(e) => { const rest = password; setPassword({ ...rest, confirmpwd: e.target.value }) }} />
           </FormGroup>
         </>}
         <button disabled={!validateForm()} type="submit">Confirmar</button>
-        <button onClick={() => document.location.href = '/remember'}>Voltar</button>
+        <button onClick={() => document.location.href = '/'}>Login</button>
       </form>
     </div>
     {message && <p>{message}</p>}
