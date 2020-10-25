@@ -71,7 +71,7 @@ const App = () => {
         <input type="file" onChange={onFileChange} />
         <FormGroup>
           <FormControl as="select" onChange={e => setCursoID(e.target.value)}>
-            <option value="0">escolha um curso...</option>
+            <option value="0">Escolha um curso</option>
             <option value="1">Análise e Desenvolvimento de Sistemas</option>
             <option value="2">Comércio Exterior</option>
             <option value="3">Gestão Empresarial</option>

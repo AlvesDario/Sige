@@ -49,9 +49,9 @@ const App = () => {
   return (<>
     <SideNav />
     <div className="content">
-      <h1>Empresas conveniadas</h1>
+      <h1>Empresas Conveniadas</h1>
       {NCON && <>
-        <label>Numero do convenio:</label>
+        <label>Número do convênio:</label>
         <input type="text" value={NCON} disabled />
         <label>CNPJ:</label>
         <input type="text" value={CNPJ} disabled />
@@ -59,17 +59,17 @@ const App = () => {
         <input type="text" value={razao} disabled />
         <label>Data de abertura:</label>
         <input type="date" value={dataAbertura} disabled />
-        <label>Email:</label>
+        <label>E-mail:</label>
         <input type="email" value={email} disabled />
         <label>CEP:</label>
         <input type="text" value={CEP} disabled />
-        <label>Endereco:</label>
+        <label>Endereço:</label>
         <input type="text" value={endereco} disabled />
         <label>Telefone:</label>
         <input type="tel" value={telefone} disabled />
-        <label>Inicio do Convenio:</label>
+        <label>Início do convênio:</label>
         <input type="date" value={inicioConvenio} disabled />
-        <label>Termino do convenio:</label>
+        <label>Término do convênio:</label>
         <input type="date" value={fimConvenio} disabled />
       </>}
       {!NCON && <>

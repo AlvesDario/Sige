@@ -100,7 +100,7 @@ const App = (props) => {
         </Form.Group>
 
         <Form.Group hidden={!alunoName && !empresaCNPJ}>
-          <Form.Label>Data de inicio:</Form.Label>
+          <Form.Label>Data de início:</Form.Label>
           <Form.Control value={startDate} type="date" placeholder="Data de inicio do contrato" onChange={e => setStartDate(e.target.value)} />
         </Form.Group>
 

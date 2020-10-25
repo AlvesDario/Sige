@@ -59,7 +59,7 @@ const App = () => {
       <select name="" id="" onChange={(e) => setChartType(e.target.value)}>
         <option>Selecione a visualização do gráfico</option>
         <option value="estagiarios_empresas">Estagiários ativos por empresa</option>
-        <option value="estagiarios_efetivos">Estagiários efetivos por empresa</option>
+        {/* <option value="estagiarios_efetivos">Estagiários efetivos por empresa</option> */}
       </select>
       {chartType === "estagiarios_empresas" && <Chart
         width={800}

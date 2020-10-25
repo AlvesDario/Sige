@@ -90,7 +90,7 @@ const App = (props) => {
         <input value={searchCNPJ} onChange={e => { setSearchCNPJ(e.target.value) }} />
       </div>
       <div className="searchInputForm">
-        <label>Nº convenio</label>
+        <label>Nº convênio</label>
         <input value={searchConvenio} onChange={e => { setSearchConvenio(e.target.value) }} />
       </div>
       <Button onClick={handleSearchClick}>Pesquisar</Button>

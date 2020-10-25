@@ -30,18 +30,19 @@ const App = () => {
 
   return (<>
     <h1>Solicitar recuperação de senha</h1>
-    <p>Insira o email utilizado no cadastro</p>
+    <p>Insira o e-mail utilizado no cadastro</p>
     <div className="Login">
       <form onSubmit={handleSubmit}>
         <FormGroup >
-          <FormLabel>Email</FormLabel>
+          <FormLabel>E-mail</FormLabel>
           <FormControl type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
         </FormGroup>
         <button disabled={!validateForm()} type="submit">Confirmar</button>
+        <button onClick={() => document.location.href = '/'}>Voltar</button>
       </form>
     </div>
     {message && <p>{message}</p>}
-    <a href="/recupera">ja possui codigo?</a>
+    <a href="/recupera">Já possui código?</a>
   </>)
 }
 

@@ -79,7 +79,7 @@ const App = () => {
     <div className="content">
       <h1>Contratos</h1>
       {NCON && <>
-        <label>Numero do contrato:</label>
+        <label>Número do contrato:</label>
         <input type="text" value={NCON} disabled />
         <label>Status:</label>
         <input type="text" value={status === 1 ? "Em andamento" : "Encerrado"} disabled />
@@ -93,7 +93,7 @@ const App = () => {
         <input type="text" value={razao} disabled />
         <label>Início do contrato:</label>
         <input type="text" value={inicioContrato} disabled />
-        <label>Termino do Contrato:</label>
+        <label>Término do contrato:</label>
         <input type="text" value={terminoContrato} disabled />
       </>}
       {!NCON && <>
